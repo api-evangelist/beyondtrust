@@ -4,8 +4,7 @@ url: >-
 apis:
   - aid: beyondtrust:beyondtrust
     name: BeyondTrust
-    tags:
-      - API
+    tags: []
     humanURL: ' https://docs.beyondtrust.com/'
     properties:
       - url: ' https://docs.beyondtrust.com/'
