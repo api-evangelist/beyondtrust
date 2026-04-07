@@ -10,7 +10,8 @@ apis:
     properties:
       - url: ' https://docs.beyondtrust.com/'
         type: Documentation
-    description: 'BeyondTrust Documentation '
+    description: >-
+      BeyondTrust Documentation.
 name: BeyondTrust
 tags:
   - Access
@@ -23,15 +24,10 @@ created: '2025-02-17'
 modified: '2026-03-16'
 position: Consuming
 description: >-
-  BeyondTrust is a cybersecurity company that specializes in privileged access
-  management and vulnerability management solutions. Their products help
-  organizations prevent data breaches, malware attacks, and other security
-  threats by identifying and controlling the access of privileged users within
-  their network. BeyondTrust's platform allows companies to centrally manage and
-  secure their most critical assets, monitor and analyze user behavior, and
-  detect and remediate vulnerabilities before they can be exploited. By
-  providing advanced security solutions, BeyondTrust helps businesses protect
-  their sensitive data and infrastructure from cyber threats.
+  BeyondTrust is a cybersecurity company that specializes in privileged access management
+  and vulnerability management solutions. Their products help organizations prevent
+  data breaches, malware attacks, and other security threats by identifying and controlling
+  the access of privileged users within their network.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
