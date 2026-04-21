@@ -1,0 +1,10 @@
+{
+  "AccountID": 20,
+  "AccountName": "administrator",
+  "SystemID": 10,
+  "SystemName": "prod-server-01",
+  "DomainName": "example.com",
+  "AccountType": "Local",
+  "LastChangeDate": "2026-04-01T00:00:00Z",
+  "PasswordFallbackFlag": false
+}

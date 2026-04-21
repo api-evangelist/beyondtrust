@@ -1,0 +1,7 @@
+{
+  "SystemID": 10,
+  "AccountID": 20,
+  "DurationMinutes": 60,
+  "Reason": "Maintenance window access",
+  "AccessType": "View"
+}

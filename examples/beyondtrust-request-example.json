@@ -1,0 +1,13 @@
+{
+  "RequestID": 1001,
+  "Status": "Approved",
+  "AccessType": "View",
+  "AccountName": "administrator",
+  "AccountID": 20,
+  "SystemName": "prod-server-01",
+  "SystemID": 10,
+  "ExpiresDate": "2026-04-19T12:00:00Z",
+  "RequestedDurationMinutes": 60,
+  "Reason": "Maintenance window access",
+  "RequestDate": "2026-04-19T10:00:00Z"
+}

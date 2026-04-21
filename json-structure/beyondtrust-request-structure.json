@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/beyondtrust/refs/heads/main/json-structure/beyondtrust-request-structure.json",
+  "name": "Request",
+  "description": "An access request for a privileged account.",
+  "type": "object",
+  "properties": {
+    "RequestID": {
+      "type": "int32",
+      "description": "Unique identifier of the request.",
+      "example": 1001
+    },
+    "Status": {
+      "type": "string",
+      "description": "Current status of the request.",
+      "enum": [
+        "Pending",
+        "Approved",
+        "Denied",
+        "Expired",
+        "Cancelled"
+      ],
+      "example": "Approved"
+    },
+    "AccessType": {
+      "type": "string",
+      "description": "Type of access requested.",
+      "enum": [
+        "View",
+        "RDP",
+        "SSH",
+        "App"
+      ],
+      "example": "View"
+    },
+    "AccountName": {
+      "type": "string",
+      "description": "Name of the privileged account.",
+      "example": "administrator"
+    },
+    "AccountID": {
+      "type": "int32",
+      "description": "ID of the managed account.",
+      "example": 20
+    },
+    "SystemName": {
+      "type": "string",
+      "description": "Name of the target system.",
+      "example": "prod-server-01"
+    },
+    "SystemID": {
+      "type": "int32",
+      "description": "ID of the managed system.",
+      "example": 10
+    },
+    "ExpiresDate": {
+      "type": "datetime",
+      "nullable": true,
+      "description": "When the approved request expires.",
+      "example": "2026-04-19T12:00:00Z"
+    },
+    "RequestedDurationMinutes": {
+      "type": "int32",
+      "description": "Requested duration in minutes.",
+      "example": 60
+    },
+    "Reason": {
+      "type": "string",
+      "nullable": true,
+      "description": "Reason provided for the access request.",
+      "example": "Maintenance window access"
+    },
+    "RequestDate": {
+      "type": "datetime",
+      "description": "When the request was created.",
+      "example": "2026-04-19T10:00:00Z"
+    }
+  }
+}

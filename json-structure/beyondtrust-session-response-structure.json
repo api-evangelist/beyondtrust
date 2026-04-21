@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/beyondtrust/refs/heads/main/json-structure/beyondtrust-session-response-structure.json",
+  "name": "SessionResponse",
+  "description": "Authenticated user session details.",
+  "type": "object",
+  "properties": {
+    "UserId": {
+      "type": "int32",
+      "description": "Internal user ID.",
+      "example": 42
+    },
+    "EmailAddress": {
+      "type": "string",
+      "format": "email",
+      "description": "Email address of the authenticated user.",
+      "example": "apiuser@example.com"
+    },
+    "UserName": {
+      "type": "string",
+      "description": "Username of the authenticated user.",
+      "example": "api-service-account"
+    },
+    "Name": {
+      "type": "string",
+      "description": "Display name of the authenticated user.",
+      "example": "API Service Account"
+    }
+  }
+}

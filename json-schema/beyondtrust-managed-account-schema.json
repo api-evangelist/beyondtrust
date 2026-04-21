@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/beyondtrust/refs/heads/main/json-schema/beyondtrust-managed-account-schema.json",
+  "title": "ManagedAccount",
+  "description": "A privileged account managed by BeyondTrust Password Safe.",
+  "type": "object",
+  "properties": {
+    "AccountID": {
+      "type": "integer",
+      "description": "Unique identifier of the managed account.",
+      "example": 20
+    },
+    "AccountName": {
+      "type": "string",
+      "description": "Name of the privileged account.",
+      "example": "administrator"
+    },
+    "SystemID": {
+      "type": "integer",
+      "description": "ID of the managed system.",
+      "example": 10
+    },
+    "SystemName": {
+      "type": "string",
+      "description": "Name of the system containing this account.",
+      "example": "prod-server-01"
+    },
+    "DomainName": {
+      "type": "string",
+      "nullable": true,
+      "description": "Domain name for domain accounts.",
+      "example": "example.com"
+    },
+    "AccountType": {
+      "type": "string",
+      "description": "Type of account.",
+      "enum": [
+        "Local",
+        "Domain",
+        "ServiceAccount"
+      ],
+      "example": "Local"
+    },
+    "LastChangeDate": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "description": "When the password was last changed.",
+      "example": "2026-04-01T00:00:00Z"
+    },
+    "PasswordFallbackFlag": {
+      "type": "boolean",
+      "description": "Whether password fallback is enabled.",
+      "example": false
+    }
+  }
+}

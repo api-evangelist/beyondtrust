@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/beyondtrust/refs/heads/main/json-schema/beyondtrust-session-response-schema.json",
+  "title": "SessionResponse",
+  "description": "Authenticated user session details.",
+  "type": "object",
+  "properties": {
+    "UserId": {
+      "type": "integer",
+      "description": "Internal user ID.",
+      "example": 42
+    },
+    "EmailAddress": {
+      "type": "string",
+      "format": "email",
+      "description": "Email address of the authenticated user.",
+      "example": "apiuser@example.com"
+    },
+    "UserName": {
+      "type": "string",
+      "description": "Username of the authenticated user.",
+      "example": "api-service-account"
+    },
+    "Name": {
+      "type": "string",
+      "description": "Display name of the authenticated user.",
+      "example": "API Service Account"
+    }
+  }
+}

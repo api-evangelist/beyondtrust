@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/beyondtrust/refs/heads/main/json-structure/beyondtrust-managed-system-structure.json",
+  "name": "ManagedSystem",
+  "description": "A system registered in BeyondTrust Password Safe.",
+  "type": "object",
+  "properties": {
+    "ManagedSystemID": {
+      "type": "int32",
+      "description": "Unique identifier of the managed system.",
+      "example": 10
+    },
+    "SystemName": {
+      "type": "string",
+      "description": "Name of the system.",
+      "example": "prod-server-01"
+    },
+    "IPAddress": {
+      "type": "string",
+      "description": "IP address of the system.",
+      "example": "10.1.1.10"
+    },
+    "Platform": {
+      "type": "string",
+      "description": "Operating system platform.",
+      "enum": [
+        "Windows",
+        "Linux",
+        "Unix",
+        "macOS"
+      ],
+      "example": "Windows"
+    },
+    "NetworkAddress": {
+      "type": "string",
+      "description": "Network hostname or FQDN.",
+      "example": "prod-server-01.example.com"
+    },
+    "ContactEmail": {
+      "type": "string",
+      "format": "email",
+      "nullable": true,
+      "description": "Contact email for this system.",
+      "example": "admin@example.com"
+    }
+  }
+}

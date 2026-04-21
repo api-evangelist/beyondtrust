@@ -1,0 +1,8 @@
+{
+  "ManagedSystemID": 10,
+  "SystemName": "prod-server-01",
+  "IPAddress": "10.1.1.10",
+  "Platform": "Windows",
+  "NetworkAddress": "prod-server-01.example.com",
+  "ContactEmail": "admin@example.com"
+}

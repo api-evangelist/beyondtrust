@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/beyondtrust/refs/heads/main/json-structure/beyondtrust-sign-app-in-request-structure.json",
+  "name": "SignAppInRequest",
+  "description": "Authentication credentials for API sign-in.",
+  "type": "object",
+  "properties": {
+    "ApplicationID": {
+      "type": "string",
+      "description": "The Application ID registered in BeyondTrust.",
+      "example": "myapp-api"
+    },
+    "APIKey": {
+      "type": "string",
+      "description": "The API key for the application.",
+      "example": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+    }
+  },
+  "required": [
+    "ApplicationID",
+    "APIKey"
+  ]
+}

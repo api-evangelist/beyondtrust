@@ -1,0 +1,230 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: BeyondTrust Privileged Access Management
+  description: >-
+    Unified privileged access management workflow combining Password Safe
+    credential management, access request workflows, and secrets management.
+    Used by security engineers and DevOps teams to manage just-in-time
+    privileged access and secrets retrieval for automated pipelines.
+  tags:
+    - BeyondTrust
+    - Privileged Access Management
+    - Zero Trust
+    - Secrets Management
+    - Just In Time Access
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      BEYONDTRUST_HOST: BEYONDTRUST_HOST
+      BEYONDTRUST_APP_ID: BEYONDTRUST_APP_ID
+      BEYONDTRUST_API_KEY: BEYONDTRUST_API_KEY
+
+capability:
+  consumes:
+    - import: beyondtrust
+      location: ./shared/beyondtrust.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: beyondtrust-pam-api
+      description: Unified REST API for BeyondTrust privileged access management.
+      resources:
+        - path: /v1/managed-accounts
+          name: managed-accounts
+          description: Privileged account discovery
+          operations:
+            - method: GET
+              name: list-managed-accounts
+              description: List managed accounts
+              call: "beyondtrust.list-managed-accounts"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/managed-systems
+          name: managed-systems
+          description: Managed system discovery
+          operations:
+            - method: GET
+              name: list-managed-systems
+              description: List managed systems
+              call: "beyondtrust.list-managed-systems"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/requests
+          name: requests
+          description: Access request management
+          operations:
+            - method: GET
+              name: list-requests
+              description: List access requests
+              call: "beyondtrust.list-requests"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-request
+              description: Create an access request
+              call: "beyondtrust.create-request"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/requests/{requestId}/credentials
+          name: request-credentials
+          description: Credential retrieval for approved requests
+          operations:
+            - method: GET
+              name: get-request-credentials
+              description: Get credentials for approved request
+              call: "beyondtrust.get-request-credentials"
+              with:
+                requestId: "rest.requestId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/secrets
+          name: secrets
+          description: Secrets management
+          operations:
+            - method: GET
+              name: list-secrets
+              description: List secrets
+              call: "beyondtrust.list-secrets"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-secret
+              description: Create a new secret
+              call: "beyondtrust.create-secret"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/secrets/{id}
+          name: secret
+          description: Individual secret operations
+          operations:
+            - method: GET
+              name: get-secret
+              description: Get a secret value
+              call: "beyondtrust.get-secret"
+              with:
+                id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: DELETE
+              name: delete-secret
+              description: Delete a secret
+              call: "beyondtrust.delete-secret"
+              with:
+                id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9080
+      namespace: beyondtrust-pam-mcp
+      transport: http
+      description: MCP server for AI-assisted BeyondTrust PAM and secrets management.
+      tools:
+        - name: list-managed-accounts
+          description: List privileged accounts available for just-in-time access
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "beyondtrust.list-managed-accounts"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-managed-systems
+          description: List systems registered in Password Safe
+          hints:
+            readOnly: true
+          call: "beyondtrust.list-managed-systems"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-requests
+          description: List all active privileged access requests
+          hints:
+            readOnly: true
+          call: "beyondtrust.list-requests"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-request
+          description: Create a just-in-time access request for a privileged account
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "beyondtrust.create-request"
+          with:
+            system_id: "tools.system_id"
+            account_id: "tools.account_id"
+            duration_minutes: "tools.duration_minutes"
+            reason: "tools.reason"
+            access_type: "tools.access_type"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-request-credentials
+          description: Retrieve credentials for an approved privileged access request
+          hints:
+            readOnly: true
+          call: "beyondtrust.get-request-credentials"
+          with:
+            requestId: "tools.request_id"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-secrets
+          description: List secrets stored in BeyondTrust Secrets Safe
+          hints:
+            readOnly: true
+          call: "beyondtrust.list-secrets"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-secret
+          description: Retrieve a specific secret value from Secrets Safe
+          hints:
+            readOnly: true
+          call: "beyondtrust.get-secret"
+          with:
+            id: "tools.id"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-secret
+          description: Store a new secret in Secrets Safe
+          hints:
+            readOnly: false
+            destructive: false
+          call: "beyondtrust.create-secret"
+          with:
+            title: "tools.title"
+            type: "tools.type"
+            password: "tools.password"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: delete-request
+          description: Cancel and delete an access request
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: "beyondtrust.delete-request"
+          with:
+            requestId: "tools.request_id"
+          outputParameters:
+            - type: object
+              mapping: "$."

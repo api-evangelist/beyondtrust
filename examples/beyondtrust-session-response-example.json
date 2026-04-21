@@ -1,0 +1,6 @@
+{
+  "UserId": 42,
+  "EmailAddress": "apiuser@example.com",
+  "UserName": "api-service-account",
+  "Name": "API Service Account"
+}

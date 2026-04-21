@@ -1,0 +1,157 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: BeyondTrust
+  description: >-
+    Unified taxonomy mapping operational and capability dimensions of the
+    BeyondTrust privileged access management platform.
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - namespace: beyondtrust-password-safe-v3
+      version: v3
+      baseUrl: https://{host}/BeyondTrust/api/public/v3
+      status: active
+      description: BeyondTrust Password Safe API for PAM and secrets management
+
+  resources:
+    - name: requests
+      api: beyondtrust-password-safe-v3
+      actions: [list, create, get, update, delete, get-credentials]
+      description: Just-in-time privileged access requests
+    - name: managed-accounts
+      api: beyondtrust-password-safe-v3
+      actions: [list]
+      description: Privileged accounts managed by Password Safe
+    - name: managed-systems
+      api: beyondtrust-password-safe-v3
+      actions: [list]
+      description: Systems registered in Password Safe
+    - name: secrets
+      api: beyondtrust-password-safe-v3
+      actions: [list, create, get, delete]
+      description: Secrets stored in Secrets Safe
+
+  actions:
+    - name: list
+      httpMethod: GET
+      pattern: read
+    - name: create
+      httpMethod: POST
+      pattern: write
+    - name: get
+      httpMethod: GET
+      pattern: read
+    - name: update
+      httpMethod: PUT
+      pattern: write
+    - name: delete
+      httpMethod: DELETE
+      pattern: destructive
+    - name: get-credentials
+      httpMethod: GET
+      pattern: read
+      description: Retrieve credentials for an approved request
+
+  schemas:
+    core:
+      - name: Request
+        keyProperties: [RequestID, Status, AccessType, AccountName, SystemName, RequestedDurationMinutes]
+      - name: ManagedAccount
+        keyProperties: [AccountID, AccountName, SystemID, SystemName, AccountType]
+      - name: ManagedSystem
+        keyProperties: [ManagedSystemID, SystemName, IPAddress, Platform]
+      - name: Secret
+        keyProperties: [id, title, type, folderName]
+
+  enums:
+    request_status:
+      - Pending
+      - Approved
+      - Denied
+      - Expired
+      - Cancelled
+    access_type:
+      - View
+      - RDP
+      - SSH
+      - App
+    account_type:
+      - Local
+      - Domain
+      - ServiceAccount
+    secret_type:
+      - Password
+      - Text
+      - File
+    system_platform:
+      - Windows
+      - Linux
+      - Unix
+      - macOS
+
+  authentication:
+    schemes:
+      - type: session
+        description: Session cookie obtained from /auth/signappin
+      - type: apiKey
+        in: header
+        name: Authorization
+        format: "PS-Auth key={key}; runas={appId}"
+
+capability:
+  workflows:
+    - name: Privileged Access Management
+      file: capabilities/privileged-access-management.yaml
+      apisConsumed: [beyondtrust]
+      toolCount: 9
+      personas: [security-engineer, devops-engineer]
+
+  personas:
+    - id: security-engineer
+      name: Security Engineer
+      description: Security team member managing privileged access policies and requests
+      workflows: [Privileged Access Management]
+    - id: devops-engineer
+      name: DevOps Engineer
+      description: DevOps engineer retrieving secrets and credentials for CI/CD pipelines
+      workflows: [Privileged Access Management]
+
+  domains:
+    - name: Privileged Access
+      description: Just-in-time access to privileged accounts on managed systems
+      resources: [requests, managed-accounts, managed-systems]
+    - name: Secrets Management
+      description: Secure storage and retrieval of secrets and credentials
+      resources: [secrets]
+
+  namespaces:
+    - type: consumed
+      name: beyondtrust
+      baseUri: https://{host}/BeyondTrust/api/public/v3
+    - type: rest
+      name: beyondtrust-pam-api
+      port: 8080
+    - type: mcp
+      name: beyondtrust-pam-mcp
+      port: 9080
+
+  binds:
+    - name: BEYONDTRUST_HOST
+      description: BeyondTrust appliance hostname
+    - name: BEYONDTRUST_APP_ID
+      description: Application ID registered in BeyondTrust
+    - name: BEYONDTRUST_API_KEY
+      description: API key for the application
+
+crossReference:
+  - resource: requests
+    operations: [listRequests, createRequest, getRequest, updateRequest, deleteRequest, getRequestCredentials]
+    workflows: [Privileged Access Management]
+    personas: [security-engineer, devops-engineer]
+  - resource: secrets
+    operations: [listSecrets, createSecret, getSecret, deleteSecret]
+    workflows: [Privileged Access Management]
+    personas: [security-engineer, devops-engineer]

@@ -1,0 +1,170 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "bt": "https://beyondtrust.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "CreateRequestBody": "bt:CreateRequestBody",
+    "CreateSecretRequest": "bt:CreateSecretRequest",
+    "CredentialResponse": "bt:CredentialResponse",
+    "ManagedAccount": "bt:ManagedAccount",
+    "ManagedSystem": "bt:ManagedSystem",
+    "Request": "bt:Request",
+    "Secret": "bt:Secret",
+    "SecretWithValue": "bt:SecretWithValue",
+    "SessionResponse": "bt:SessionResponse",
+    "SignAppInRequest": "bt:SignAppInRequest",
+    "UpdateRequestBody": "bt:UpdateRequestBody",
+    "SystemID": {
+      "@id": "bt:SystemID",
+      "@type": "xsd:integer"
+    },
+    "AccountID": {
+      "@id": "bt:AccountID",
+      "@type": "xsd:integer"
+    },
+    "DurationMinutes": {
+      "@id": "bt:DurationMinutes",
+      "@type": "xsd:integer"
+    },
+    "Reason": {
+      "@id": "bt:Reason",
+      "@type": "xsd:string"
+    },
+    "AccessType": {
+      "@id": "bt:AccessType",
+      "@type": "xsd:string"
+    },
+    "title": {
+      "@id": "bt:title",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "bt:description",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "bt:type",
+      "@type": "xsd:string"
+    },
+    "password": {
+      "@id": "bt:password",
+      "@type": "xsd:string"
+    },
+    "text": {
+      "@id": "bt:text",
+      "@type": "xsd:string"
+    },
+    "folderName": {
+      "@id": "bt:folderName",
+      "@type": "xsd:string"
+    },
+    "Password": {
+      "@id": "bt:Password",
+      "@type": "xsd:string"
+    },
+    "PrivateKey": {
+      "@id": "bt:PrivateKey",
+      "@type": "xsd:string"
+    },
+    "AccountName": {
+      "@id": "bt:AccountName",
+      "@type": "xsd:string"
+    },
+    "SystemName": {
+      "@id": "bt:SystemName",
+      "@type": "xsd:string"
+    },
+    "DomainName": {
+      "@id": "bt:DomainName",
+      "@type": "xsd:string"
+    },
+    "AccountType": {
+      "@id": "bt:AccountType",
+      "@type": "xsd:string"
+    },
+    "LastChangeDate": {
+      "@id": "bt:LastChangeDate",
+      "@type": "xsd:dateTime"
+    },
+    "PasswordFallbackFlag": {
+      "@id": "bt:PasswordFallbackFlag",
+      "@type": "xsd:boolean"
+    },
+    "ManagedSystemID": {
+      "@id": "bt:ManagedSystemID",
+      "@type": "xsd:integer"
+    },
+    "IPAddress": {
+      "@id": "bt:IPAddress",
+      "@type": "xsd:string"
+    },
+    "Platform": {
+      "@id": "bt:Platform",
+      "@type": "xsd:string"
+    },
+    "NetworkAddress": {
+      "@id": "bt:NetworkAddress",
+      "@type": "xsd:string"
+    },
+    "ContactEmail": {
+      "@id": "bt:ContactEmail",
+      "@type": "xsd:string"
+    },
+    "RequestID": {
+      "@id": "bt:RequestID",
+      "@type": "xsd:integer"
+    },
+    "Status": {
+      "@id": "bt:Status",
+      "@type": "xsd:string"
+    },
+    "ExpiresDate": {
+      "@id": "bt:ExpiresDate",
+      "@type": "xsd:dateTime"
+    },
+    "RequestedDurationMinutes": {
+      "@id": "bt:RequestedDurationMinutes",
+      "@type": "xsd:integer"
+    },
+    "RequestDate": {
+      "@id": "bt:RequestDate",
+      "@type": "xsd:dateTime"
+    },
+    "id": {
+      "@id": "bt:id",
+      "@type": "xsd:string"
+    },
+    "created": {
+      "@id": "bt:created",
+      "@type": "xsd:dateTime"
+    },
+    "lastModified": {
+      "@id": "bt:lastModified",
+      "@type": "xsd:dateTime"
+    },
+    "UserId": {
+      "@id": "bt:UserId",
+      "@type": "xsd:integer"
+    },
+    "EmailAddress": "schema:email",
+    "UserName": {
+      "@id": "bt:UserName",
+      "@type": "xsd:string"
+    },
+    "Name": "schema:name",
+    "ApplicationID": {
+      "@id": "bt:ApplicationID",
+      "@type": "xsd:string"
+    },
+    "APIKey": {
+      "@id": "bt:APIKey",
+      "@type": "xsd:string"
+    },
+    "Action": {
+      "@id": "bt:Action",
+      "@type": "xsd:string"
+    }
+  }
+}

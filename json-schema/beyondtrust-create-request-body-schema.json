@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/beyondtrust/refs/heads/main/json-schema/beyondtrust-create-request-body-schema.json",
+  "title": "CreateRequestBody",
+  "description": "Request body for creating an access request.",
+  "type": "object",
+  "properties": {
+    "SystemID": {
+      "type": "integer",
+      "description": "ID of the managed system.",
+      "example": 10
+    },
+    "AccountID": {
+      "type": "integer",
+      "description": "ID of the managed account.",
+      "example": 20
+    },
+    "DurationMinutes": {
+      "type": "integer",
+      "description": "Requested access duration in minutes.",
+      "example": 60
+    },
+    "Reason": {
+      "type": "string",
+      "description": "Business justification for the access request.",
+      "example": "Maintenance window access"
+    },
+    "AccessType": {
+      "type": "string",
+      "description": "Type of access requested.",
+      "enum": [
+        "View",
+        "RDP",
+        "SSH",
+        "App"
+      ],
+      "example": "View"
+    }
+  },
+  "required": [
+    "SystemID",
+    "AccountID",
+    "DurationMinutes",
+    "Reason",
+    "AccessType"
+  ]
+}

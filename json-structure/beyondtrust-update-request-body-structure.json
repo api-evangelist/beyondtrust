@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/beyondtrust/refs/heads/main/json-structure/beyondtrust-update-request-body-structure.json",
+  "name": "UpdateRequestBody",
+  "description": "Request body for approving, denying, or cancelling a request.",
+  "type": "object",
+  "properties": {
+    "Action": {
+      "type": "string",
+      "description": "The action to perform on the request.",
+      "enum": [
+        "Approve",
+        "Deny",
+        "Cancel"
+      ],
+      "example": "Approve"
+    },
+    "Reason": {
+      "type": "string",
+      "description": "Reason for the action.",
+      "example": "Approved for maintenance window"
+    }
+  },
+  "required": [
+    "Action"
+  ]
+}
