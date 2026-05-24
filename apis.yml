@@ -111,6 +111,8 @@ common:
     description: Forward audit logs and session recordings to Splunk for SIEM analysis.
   - name: Terraform
     description: Manage BeyondTrust Password Safe resources as infrastructure as code.
+- type: LLMsTxt
+  url: https://docs.beyondtrust.com/llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
