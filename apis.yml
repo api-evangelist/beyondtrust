@@ -16,17 +16,17 @@ apis:
     type: Documentation
   - url: https://raw.githubusercontent.com/api-evangelist/beyondtrust/refs/heads/main/openapi/beyondtrust-password-safe-api.yaml
     type: OpenAPI
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/password-safe-authentication.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/password-safe-credentials.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/password-safe-managed-accounts.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/password-safe-managed-systems.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/password-safe-requests.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/password-safe-secrets.yaml
   description: The BeyondTrust Password Safe API provides programmatic access to privileged credential management, secrets
     management, session management, and access request workflows. It enables organizations to implement just-in-time privileged
@@ -111,7 +111,7 @@ common:
     description: Forward audit logs and session recordings to Splunk for SIEM analysis.
   - name: Terraform
     description: Manage BeyondTrust Password Safe resources as infrastructure as code.
-- type: LLMsTxt
+- type: LlmsText
   url: https://docs.beyondtrust.com/llms.txt
 maintainers:
 - FN: Kin Lane
