@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/beyondtrust-password-safe-api.yaml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: apiKeyAuth
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: PS-Auth key={APIKey}; runas={AppID}. Authenticate by first calling /auth/signappin
+    to get a session cookie, then use PS-Auth header for subsequent requests.
+  sources:
+  - openapi/beyondtrust-password-safe-api.yaml

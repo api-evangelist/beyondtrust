@@ -51,6 +51,12 @@ description: BeyondTrust is a cybersecurity company specializing in privileged a
   solutions. Their products help organizations prevent data breaches, malware attacks, and insider threats by identifying
   and controlling the access of privileged users, accounts, and credentials across the enterprise.
 common:
+- type: VulnerabilityDisclosure
+  url: security/beyondtrust-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/beyondtrust-domain-security.yml
+- type: Authentication
+  url: authentication/beyondtrust-authentication.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/beyondtrust
 - type: Portal
