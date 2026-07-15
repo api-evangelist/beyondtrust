@@ -51,6 +51,8 @@ description: BeyondTrust is a cybersecurity company specializing in privileged a
   solutions. Their products help organizations prevent data breaches, malware attacks, and insider threats by identifying
   and controlling the access of privileged users, accounts, and credentials across the enterprise.
 common:
+- type: AgenticAccess
+  url: agentic-access/beyondtrust-agentic-access.yml
 - type: VulnerabilityDisclosure
   url: security/beyondtrust-vulnerability-disclosure.yml
 - type: DomainSecurity
