@@ -1,0 +1,120 @@
+openapi: 3.0.3
+info:
+  title: BeyondTrust Password Safe Authentication Managed Accounts API
+  description: The BeyondTrust Password Safe API provides programmatic access to privileged credential management, secrets management, session management, and access request workflows. It enables developers to integrate privileged account security into CI/CD pipelines, automation frameworks, and enterprise applications.
+  version: v3
+  contact:
+    name: BeyondTrust Support
+    url: https://docs.beyondtrust.com/
+  x-generated-from: documentation
+servers:
+- url: https://{hostname}/BeyondTrust/api/public/v3
+  description: BeyondTrust Password Safe API v3
+  variables:
+    hostname:
+      default: beyondtrust.example.com
+      description: Your BeyondTrust appliance hostname
+security:
+- apiKeyAuth: []
+tags:
+- name: Managed Accounts
+  description: Manage privileged accounts and their configurations
+paths:
+  /managedaccounts:
+    get:
+      operationId: listManagedAccounts
+      summary: BeyondTrust List Managed Accounts
+      description: Returns a list of managed accounts available to the caller.
+      tags:
+      - Managed Accounts
+      parameters:
+      - name: systemName
+        in: query
+        description: Filter accounts by system name.
+        required: false
+        schema:
+          type: string
+        example: prod-server-01
+      - name: accountName
+        in: query
+        description: Filter by account name.
+        required: false
+        schema:
+          type: string
+        example: administrator
+      responses:
+        '200':
+          description: List of managed accounts.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ManagedAccount'
+              examples:
+                ListManagedAccounts200Example:
+                  summary: Default listManagedAccounts 200 response
+                  x-microcks-default: true
+                  value:
+                  - AccountID: 20
+                    AccountName: administrator
+                    SystemID: 10
+                    SystemName: prod-server-01
+                    DomainName: example.com
+                    AccountType: Local
+                    LastChangeDate: '2026-04-01T00:00:00Z'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    ManagedAccount:
+      title: Managed Account
+      description: A privileged account managed by BeyondTrust Password Safe.
+      type: object
+      properties:
+        AccountID:
+          type: integer
+          description: Unique identifier of the managed account.
+          example: 20
+        AccountName:
+          type: string
+          description: Name of the privileged account.
+          example: administrator
+        SystemID:
+          type: integer
+          description: ID of the managed system.
+          example: 10
+        SystemName:
+          type: string
+          description: Name of the system containing this account.
+          example: prod-server-01
+        DomainName:
+          type: string
+          nullable: true
+          description: Domain name for domain accounts.
+          example: example.com
+        AccountType:
+          type: string
+          description: Type of account.
+          enum:
+          - Local
+          - Domain
+          - ServiceAccount
+          example: Local
+        LastChangeDate:
+          type: string
+          format: date-time
+          nullable: true
+          description: When the password was last changed.
+          example: '2026-04-01T00:00:00Z'
+        PasswordFallbackFlag:
+          type: boolean
+          description: Whether password fallback is enabled.
+          example: false
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: PS-Auth key={APIKey}; runas={AppID}. Authenticate by first calling /auth/signappin to get a session cookie, then use PS-Auth header for subsequent requests.

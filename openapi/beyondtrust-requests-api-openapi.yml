@@ -1,0 +1,355 @@
+openapi: 3.0.3
+info:
+  title: BeyondTrust Password Safe Authentication Requests API
+  description: The BeyondTrust Password Safe API provides programmatic access to privileged credential management, secrets management, session management, and access request workflows. It enables developers to integrate privileged account security into CI/CD pipelines, automation frameworks, and enterprise applications.
+  version: v3
+  contact:
+    name: BeyondTrust Support
+    url: https://docs.beyondtrust.com/
+  x-generated-from: documentation
+servers:
+- url: https://{hostname}/BeyondTrust/api/public/v3
+  description: BeyondTrust Password Safe API v3
+  variables:
+    hostname:
+      default: beyondtrust.example.com
+      description: Your BeyondTrust appliance hostname
+security:
+- apiKeyAuth: []
+tags:
+- name: Requests
+  description: Submit and manage access requests for privileged accounts
+paths:
+  /requests:
+    get:
+      operationId: listRequests
+      summary: BeyondTrust List Requests
+      description: Returns all active access requests for the authenticated user.
+      tags:
+      - Requests
+      responses:
+        '200':
+          description: List of active requests.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Request'
+              examples:
+                ListRequests200Example:
+                  summary: Default listRequests 200 response
+                  x-microcks-default: true
+                  value:
+                  - RequestID: 1001
+                    Status: Approved
+                    AccessType: View
+                    AccountName: administrator
+                    SystemName: prod-server-01
+                    ExpiresDate: '2026-04-19T12:00:00Z'
+                    RequestedDurationMinutes: 60
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createRequest
+      summary: BeyondTrust Create Request
+      description: Creates a new access request for a managed account.
+      tags:
+      - Requests
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateRequestBody'
+            examples:
+              CreateRequestRequestExample:
+                summary: Default createRequest request
+                x-microcks-default: true
+                value:
+                  SystemID: 10
+                  AccountID: 20
+                  DurationMinutes: 60
+                  Reason: Maintenance window access
+                  AccessType: View
+      responses:
+        '201':
+          description: Request created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Request'
+              examples:
+                CreateRequest201Example:
+                  summary: Default createRequest 201 response
+                  x-microcks-default: true
+                  value:
+                    RequestID: 1002
+                    Status: Pending
+                    AccessType: View
+                    AccountName: administrator
+                    SystemName: prod-server-01
+                    RequestedDurationMinutes: 60
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /requests/{requestId}:
+    get:
+      operationId: getRequest
+      summary: BeyondTrust Get Request
+      description: Returns a single access request by ID.
+      tags:
+      - Requests
+      parameters:
+      - name: requestId
+        in: path
+        required: true
+        description: The unique identifier of the request.
+        schema:
+          type: integer
+        example: 1001
+      responses:
+        '200':
+          description: Request details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Request'
+              examples:
+                GetRequest200Example:
+                  summary: Default getRequest 200 response
+                  x-microcks-default: true
+                  value:
+                    RequestID: 1001
+                    Status: Approved
+                    AccessType: View
+                    AccountName: administrator
+                    SystemName: prod-server-01
+                    ExpiresDate: '2026-04-19T12:00:00Z'
+                    RequestedDurationMinutes: 60
+        '404':
+          description: Request not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      operationId: updateRequest
+      summary: BeyondTrust Update Request
+      description: Approves, denies, or cancels an access request.
+      tags:
+      - Requests
+      parameters:
+      - name: requestId
+        in: path
+        required: true
+        description: The unique identifier of the request.
+        schema:
+          type: integer
+        example: 1001
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateRequestBody'
+            examples:
+              UpdateRequestRequestExample:
+                summary: Default updateRequest request
+                x-microcks-default: true
+                value:
+                  Action: Approve
+      responses:
+        '200':
+          description: Request updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Request'
+              examples:
+                UpdateRequest200Example:
+                  summary: Default updateRequest 200 response
+                  x-microcks-default: true
+                  value:
+                    RequestID: 1001
+                    Status: Approved
+                    AccessType: View
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteRequest
+      summary: BeyondTrust Delete Request
+      description: Cancels and deletes an access request.
+      tags:
+      - Requests
+      parameters:
+      - name: requestId
+        in: path
+        required: true
+        description: The unique identifier of the request.
+        schema:
+          type: integer
+        example: 1001
+      responses:
+        '200':
+          description: Request cancelled.
+        '404':
+          description: Request not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    CreateRequestBody:
+      title: Create Request Body
+      description: Request body for creating an access request.
+      type: object
+      required:
+      - SystemID
+      - AccountID
+      - DurationMinutes
+      - Reason
+      - AccessType
+      properties:
+        SystemID:
+          type: integer
+          description: ID of the managed system.
+          example: 10
+        AccountID:
+          type: integer
+          description: ID of the managed account.
+          example: 20
+        DurationMinutes:
+          type: integer
+          description: Requested access duration in minutes.
+          example: 60
+        Reason:
+          type: string
+          description: Business justification for the access request.
+          example: Maintenance window access
+        AccessType:
+          type: string
+          description: Type of access requested.
+          enum:
+          - View
+          - RDP
+          - SSH
+          - App
+          example: View
+    Request:
+      title: Request
+      description: An access request for a privileged account.
+      type: object
+      properties:
+        RequestID:
+          type: integer
+          description: Unique identifier of the request.
+          example: 1001
+        Status:
+          type: string
+          description: Current status of the request.
+          enum:
+          - Pending
+          - Approved
+          - Denied
+          - Expired
+          - Cancelled
+          example: Approved
+        AccessType:
+          type: string
+          description: Type of access requested.
+          enum:
+          - View
+          - RDP
+          - SSH
+          - App
+          example: View
+        AccountName:
+          type: string
+          description: Name of the privileged account.
+          example: administrator
+        AccountID:
+          type: integer
+          description: ID of the managed account.
+          example: 20
+        SystemName:
+          type: string
+          description: Name of the target system.
+          example: prod-server-01
+        SystemID:
+          type: integer
+          description: ID of the managed system.
+          example: 10
+        ExpiresDate:
+          type: string
+          format: date-time
+          nullable: true
+          description: When the approved request expires.
+          example: '2026-04-19T12:00:00Z'
+        RequestedDurationMinutes:
+          type: integer
+          description: Requested duration in minutes.
+          example: 60
+        Reason:
+          type: string
+          nullable: true
+          description: Reason provided for the access request.
+          example: Maintenance window access
+        RequestDate:
+          type: string
+          format: date-time
+          description: When the request was created.
+          example: '2026-04-19T10:00:00Z'
+    ErrorResponse:
+      title: Error Response
+      description: Standard BeyondTrust API error response.
+      type: object
+      properties:
+        Message:
+          type: string
+          description: Human-readable error message.
+          example: Access denied
+        ErrorCode:
+          type: integer
+          description: Numeric error code.
+          example: 4003
+    UpdateRequestBody:
+      title: Update Request Body
+      description: Request body for approving, denying, or cancelling a request.
+      type: object
+      required:
+      - Action
+      properties:
+        Action:
+          type: string
+          description: The action to perform on the request.
+          enum:
+          - Approve
+          - Deny
+          - Cancel
+          example: Approve
+        Reason:
+          type: string
+          description: Reason for the action.
+          example: Approved for maintenance window
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: PS-Auth key={APIKey}; runas={AppID}. Authenticate by first calling /auth/signappin to get a session cookie, then use PS-Auth header for subsequent requests.

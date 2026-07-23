@@ -1,0 +1,145 @@
+openapi: 3.0.3
+info:
+  title: BeyondTrust Password Safe Authentication API
+  description: The BeyondTrust Password Safe API provides programmatic access to privileged credential management, secrets management, session management, and access request workflows. It enables developers to integrate privileged account security into CI/CD pipelines, automation frameworks, and enterprise applications.
+  version: v3
+  contact:
+    name: BeyondTrust Support
+    url: https://docs.beyondtrust.com/
+  x-generated-from: documentation
+servers:
+- url: https://{hostname}/BeyondTrust/api/public/v3
+  description: BeyondTrust Password Safe API v3
+  variables:
+    hostname:
+      default: beyondtrust.example.com
+      description: Your BeyondTrust appliance hostname
+security:
+- apiKeyAuth: []
+tags:
+- name: Authentication
+  description: API authentication and authorization
+paths:
+  /auth/signappin:
+    post:
+      operationId: signAppIn
+      summary: BeyondTrust Sign App In
+      description: Authenticates an application and creates a session. Returns a session token for subsequent API calls.
+      tags:
+      - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignAppInRequest'
+            examples:
+              SignAppInRequestExample:
+                summary: Default signAppIn request
+                x-microcks-default: true
+                value:
+                  ApplicationID: myapp-api
+                  APIKey: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+      responses:
+        '200':
+          description: Authentication successful.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionResponse'
+              examples:
+                SignAppIn200Example:
+                  summary: Default signAppIn 200 response
+                  x-microcks-default: true
+                  value:
+                    UserId: 42
+                    EmailAddress: apiuser@example.com
+                    UserName: api-service-account
+                    Name: API Service Account
+        '401':
+          description: Authentication failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /auth/signappout:
+    post:
+      operationId: signAppOut
+      summary: BeyondTrust Sign App Out
+      description: Terminates the current application session.
+      tags:
+      - Authentication
+      responses:
+        '200':
+          description: Sign out successful.
+        '401':
+          description: Not authenticated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    SignAppInRequest:
+      title: Sign App In Request
+      description: Authentication credentials for API sign-in.
+      type: object
+      required:
+      - ApplicationID
+      - APIKey
+      properties:
+        ApplicationID:
+          type: string
+          description: The Application ID registered in BeyondTrust.
+          example: myapp-api
+        APIKey:
+          type: string
+          description: The API key for the application.
+          example: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+    ErrorResponse:
+      title: Error Response
+      description: Standard BeyondTrust API error response.
+      type: object
+      properties:
+        Message:
+          type: string
+          description: Human-readable error message.
+          example: Access denied
+        ErrorCode:
+          type: integer
+          description: Numeric error code.
+          example: 4003
+    SessionResponse:
+      title: Session Response
+      description: Authenticated user session details.
+      type: object
+      properties:
+        UserId:
+          type: integer
+          description: Internal user ID.
+          example: 42
+        EmailAddress:
+          type: string
+          format: email
+          description: Email address of the authenticated user.
+          example: apiuser@example.com
+        UserName:
+          type: string
+          description: Username of the authenticated user.
+          example: api-service-account
+        Name:
+          type: string
+          description: Display name of the authenticated user.
+          example: API Service Account
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: PS-Auth key={APIKey}; runas={AppID}. Authenticate by first calling /auth/signappin to get a session cookie, then use PS-Auth header for subsequent requests.

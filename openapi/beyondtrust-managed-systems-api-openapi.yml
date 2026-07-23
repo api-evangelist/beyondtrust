@@ -1,0 +1,104 @@
+openapi: 3.0.3
+info:
+  title: BeyondTrust Password Safe Authentication Managed Systems API
+  description: The BeyondTrust Password Safe API provides programmatic access to privileged credential management, secrets management, session management, and access request workflows. It enables developers to integrate privileged account security into CI/CD pipelines, automation frameworks, and enterprise applications.
+  version: v3
+  contact:
+    name: BeyondTrust Support
+    url: https://docs.beyondtrust.com/
+  x-generated-from: documentation
+servers:
+- url: https://{hostname}/BeyondTrust/api/public/v3
+  description: BeyondTrust Password Safe API v3
+  variables:
+    hostname:
+      default: beyondtrust.example.com
+      description: Your BeyondTrust appliance hostname
+security:
+- apiKeyAuth: []
+tags:
+- name: Managed Systems
+  description: Manage systems registered in Password Safe
+paths:
+  /managedsystems:
+    get:
+      operationId: listManagedSystems
+      summary: BeyondTrust List Managed Systems
+      description: Returns a list of managed systems registered in Password Safe.
+      tags:
+      - Managed Systems
+      parameters:
+      - name: name
+        in: query
+        description: Filter by system name.
+        required: false
+        schema:
+          type: string
+        example: prod-server-01
+      responses:
+        '200':
+          description: List of managed systems.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ManagedSystem'
+              examples:
+                ListManagedSystems200Example:
+                  summary: Default listManagedSystems 200 response
+                  x-microcks-default: true
+                  value:
+                  - ManagedSystemID: 10
+                    SystemName: prod-server-01
+                    IPAddress: 10.1.1.10
+                    Platform: Windows
+                    NetworkAddress: prod-server-01.example.com
+                    ContactEmail: admin@example.com
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    ManagedSystem:
+      title: Managed System
+      description: A system registered in BeyondTrust Password Safe.
+      type: object
+      properties:
+        ManagedSystemID:
+          type: integer
+          description: Unique identifier of the managed system.
+          example: 10
+        SystemName:
+          type: string
+          description: Name of the system.
+          example: prod-server-01
+        IPAddress:
+          type: string
+          description: IP address of the system.
+          example: 10.1.1.10
+        Platform:
+          type: string
+          description: Operating system platform.
+          enum:
+          - Windows
+          - Linux
+          - Unix
+          - macOS
+          example: Windows
+        NetworkAddress:
+          type: string
+          description: Network hostname or FQDN.
+          example: prod-server-01.example.com
+        ContactEmail:
+          type: string
+          format: email
+          nullable: true
+          description: Contact email for this system.
+          example: admin@example.com
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: PS-Auth key={APIKey}; runas={AppID}. Authenticate by first calling /auth/signappin to get a session cookie, then use PS-Auth header for subsequent requests.
