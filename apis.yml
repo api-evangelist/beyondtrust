@@ -1,21 +1,18 @@
 aid: beyondtrust
 url: https://raw.githubusercontent.com/api-evangelist/beyondtrust/refs/heads/main/apis.yml
 apis:
-- aid: beyondtrust:beyondtrust-password-safe-api
-  name: BeyondTrust Password Safe API
-  tags:
-  - Privileged Access Management
-  - Secrets Management
-  - Security
-  - Zero Trust
-  - Credentials
+- aid: beyondtrust:beyondtrust-authentication-api
+  name: BeyondTrust Authentication API
+  description: API authentication and authorization
   humanURL: https://docs.beyondtrust.com/
   baseURL: https://{host}/BeyondTrust/api/public/v3
+  tags:
+  - Authentication
   properties:
-  - url: https://docs.beyondtrust.com/
-    type: Documentation
-  - url: https://raw.githubusercontent.com/api-evangelist/beyondtrust/refs/heads/main/openapi/beyondtrust-password-safe-api.yaml
-    type: OpenAPI
+  - type: OpenAPI
+    url: openapi/beyondtrust-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://docs.beyondtrust.com/
   - type: X-NaftikoCapability
     url: capabilities/password-safe-authentication.yaml
   - type: X-NaftikoCapability
@@ -28,9 +25,126 @@ apis:
     url: capabilities/password-safe-requests.yaml
   - type: X-NaftikoCapability
     url: capabilities/password-safe-secrets.yaml
-  description: The BeyondTrust Password Safe API provides programmatic access to privileged credential management, secrets
-    management, session management, and access request workflows. It enables organizations to implement just-in-time privileged
-    access and integrate credential retrieval into automation pipelines and DevOps workflows.
+- aid: beyondtrust:beyondtrust-credentials-api
+  name: BeyondTrust Credentials API
+  description: Manage privileged account credentials and passwords
+  humanURL: https://docs.beyondtrust.com/
+  baseURL: https://{host}/BeyondTrust/api/public/v3
+  tags:
+  - Credentials
+  properties:
+  - type: OpenAPI
+    url: openapi/beyondtrust-credentials-api-openapi.yml
+  - type: Documentation
+    url: https://docs.beyondtrust.com/
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-authentication.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-credentials.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-managed-accounts.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-managed-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-requests.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-secrets.yaml
+- aid: beyondtrust:beyondtrust-managed-accounts-api
+  name: BeyondTrust Managed Accounts API
+  description: Manage privileged accounts and their configurations
+  humanURL: https://docs.beyondtrust.com/
+  baseURL: https://{host}/BeyondTrust/api/public/v3
+  tags:
+  - Managed Accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/beyondtrust-managed-accounts-api-openapi.yml
+  - type: Documentation
+    url: https://docs.beyondtrust.com/
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-authentication.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-credentials.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-managed-accounts.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-managed-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-requests.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-secrets.yaml
+- aid: beyondtrust:beyondtrust-managed-systems-api
+  name: BeyondTrust Managed Systems API
+  description: Manage systems registered in Password Safe
+  humanURL: https://docs.beyondtrust.com/
+  baseURL: https://{host}/BeyondTrust/api/public/v3
+  tags:
+  - Managed Systems
+  properties:
+  - type: OpenAPI
+    url: openapi/beyondtrust-managed-systems-api-openapi.yml
+  - type: Documentation
+    url: https://docs.beyondtrust.com/
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-authentication.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-credentials.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-managed-accounts.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-managed-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-requests.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-secrets.yaml
+- aid: beyondtrust:beyondtrust-requests-api
+  name: BeyondTrust Requests API
+  description: Submit and manage access requests for privileged accounts
+  humanURL: https://docs.beyondtrust.com/
+  baseURL: https://{host}/BeyondTrust/api/public/v3
+  tags:
+  - Requests
+  properties:
+  - type: OpenAPI
+    url: openapi/beyondtrust-requests-api-openapi.yml
+  - type: Documentation
+    url: https://docs.beyondtrust.com/
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-authentication.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-credentials.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-managed-accounts.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-managed-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-requests.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-secrets.yaml
+- aid: beyondtrust:beyondtrust-secrets-api
+  name: BeyondTrust Secrets API
+  description: Manage secrets and secret store entries
+  humanURL: https://docs.beyondtrust.com/
+  baseURL: https://{host}/BeyondTrust/api/public/v3
+  tags:
+  - Secrets
+  properties:
+  - type: OpenAPI
+    url: openapi/beyondtrust-secrets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.beyondtrust.com/
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-authentication.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-credentials.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-managed-accounts.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-managed-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-requests.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/password-safe-secrets.yaml
 name: BeyondTrust
 tags:
 - Access
@@ -42,7 +156,20 @@ tags:
 - Secrets
 - Zero Trust
 kind: contract
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/beyondtrust.png
 access: 3rd-Party
 created: '2025-02-17'
 modified: '2026-05-19'
