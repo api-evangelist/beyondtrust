@@ -1,0 +1,24 @@
+{
+  "provider": "beyondtrust",
+  "sources": [
+    "beyondtrust-authentication-api-openapi.yml",
+    "beyondtrust-credentials-api-openapi.yml",
+    "beyondtrust-managed-accounts-api-openapi.yml",
+    "beyondtrust-managed-systems-api-openapi.yml",
+    "beyondtrust-requests-api-openapi.yml",
+    "beyondtrust-secrets-api-openapi.yml"
+  ],
+  "outputs": [
+    "beyondtrust-authentication-api-openapi.yml",
+    "beyondtrust-credentials-api-openapi.yml",
+    "beyondtrust-managed-accounts-api-openapi.yml",
+    "beyondtrust-managed-systems-api-openapi.yml",
+    "beyondtrust-requests-api-openapi.yml",
+    "beyondtrust-secrets-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
