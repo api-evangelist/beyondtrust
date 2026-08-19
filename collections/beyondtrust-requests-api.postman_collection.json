@@ -1,0 +1,778 @@
+{
+  "item": [
+    {
+      "id": "bf6b999a-0cc4-4963-ac14-97738471a7ae",
+      "name": "Requests",
+      "description": {
+        "content": "Submit and manage access requests for privileged accounts",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "59430385-a27a-4c47-a94e-4c9ef60d35ca",
+          "name": "BeyondTrust List Requests",
+          "request": {
+            "name": "BeyondTrust List Requests",
+            "description": {
+              "content": "Returns all active access requests for the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your BeyondTrust appliance hostname",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "696287e0-ecd1-4d95-bbf1-91c5e89a19e4",
+              "name": "List of active requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your BeyondTrust appliance hostname",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"RequestID\": 1001,\n    \"Status\": \"Approved\",\n    \"AccessType\": \"View\",\n    \"AccountName\": \"administrator\",\n    \"SystemName\": \"prod-server-01\",\n    \"ExpiresDate\": \"2026-04-19T12:00:00Z\",\n    \"RequestedDurationMinutes\": 60\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "06779731-b230-40ed-a150-35aa0ff2a32d",
+          "name": "BeyondTrust Create Request",
+          "request": {
+            "name": "BeyondTrust Create Request",
+            "description": {
+              "content": "Creates a new access request for a managed account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your BeyondTrust appliance hostname",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"SystemID\": \"<integer>\",\n  \"AccountID\": \"<integer>\",\n  \"DurationMinutes\": \"<integer>\",\n  \"Reason\": \"<string>\",\n  \"AccessType\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9deac84e-f398-4990-a115-a691059a61b3",
+              "name": "Request created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your BeyondTrust appliance hostname",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"SystemID\": 10,\n  \"AccountID\": 20,\n  \"DurationMinutes\": 60,\n  \"Reason\": \"Maintenance window access\",\n  \"AccessType\": \"View\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"RequestID\": 1002,\n  \"Status\": \"Pending\",\n  \"AccessType\": \"View\",\n  \"AccountName\": \"administrator\",\n  \"SystemName\": \"prod-server-01\",\n  \"RequestedDurationMinutes\": 60\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "93d054c0-a68d-44c6-9abc-00afe4a1b071",
+              "name": "Invalid request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your BeyondTrust appliance hostname",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"SystemID\": 10,\n  \"AccountID\": 20,\n  \"DurationMinutes\": 60,\n  \"Reason\": \"Maintenance window access\",\n  \"AccessType\": \"View\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Message\": \"Access denied\",\n  \"ErrorCode\": 4003\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3b0513d0-cdf1-494a-98d0-41b9649cc018",
+          "name": "BeyondTrust Get Request",
+          "request": {
+            "name": "BeyondTrust Get Request",
+            "description": {
+              "content": "Returns a single access request by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "requests",
+                ":requestId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "requestId",
+                  "description": "(Required) The unique identifier of the request."
+                },
+                {
+                  "description": "Your BeyondTrust appliance hostname",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3de38d9e-2204-4696-b015-484ea65460cf",
+              "name": "Request details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "requests",
+                    ":requestId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "requestId",
+                      "description": "(Required) The unique identifier of the request."
+                    },
+                    {
+                      "description": "Your BeyondTrust appliance hostname",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"RequestID\": 1001,\n  \"Status\": \"Approved\",\n  \"AccessType\": \"View\",\n  \"AccountName\": \"administrator\",\n  \"SystemName\": \"prod-server-01\",\n  \"ExpiresDate\": \"2026-04-19T12:00:00Z\",\n  \"RequestedDurationMinutes\": 60\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b0f0321-a628-4627-bf31-3972cb7d57ae",
+              "name": "Request not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "requests",
+                    ":requestId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "requestId",
+                      "description": "(Required) The unique identifier of the request."
+                    },
+                    {
+                      "description": "Your BeyondTrust appliance hostname",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Message\": \"Access denied\",\n  \"ErrorCode\": 4003\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c22fb28-1a27-4872-b7a2-d4df96eb31e8",
+          "name": "BeyondTrust Update Request",
+          "request": {
+            "name": "BeyondTrust Update Request",
+            "description": {
+              "content": "Approves, denies, or cancels an access request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "requests",
+                ":requestId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "requestId",
+                  "description": "(Required) The unique identifier of the request."
+                },
+                {
+                  "description": "Your BeyondTrust appliance hostname",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Action\": \"<string>\",\n  \"Reason\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4350fd75-f6e3-4d6f-8e38-c59303bc0bb6",
+              "name": "Request updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "requests",
+                    ":requestId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "requestId",
+                      "description": "(Required) The unique identifier of the request."
+                    },
+                    {
+                      "description": "Your BeyondTrust appliance hostname",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Action\": \"Approve\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"RequestID\": 1001,\n  \"Status\": \"Approved\",\n  \"AccessType\": \"View\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b42e7324-d4f9-43d2-aef7-09cb920d9179",
+          "name": "BeyondTrust Delete Request",
+          "request": {
+            "name": "BeyondTrust Delete Request",
+            "description": {
+              "content": "Cancels and deletes an access request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "requests",
+                ":requestId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "requestId",
+                  "description": "(Required) The unique identifier of the request."
+                },
+                {
+                  "description": "Your BeyondTrust appliance hostname",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "12335558-c89a-46af-8cc5-5d9c582c74eb",
+              "name": "Request cancelled.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "requests",
+                    ":requestId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "requestId",
+                      "description": "(Required) The unique identifier of the request."
+                    },
+                    {
+                      "description": "Your BeyondTrust appliance hostname",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "23aab547-a961-4369-b7d1-bdf1d23ed507",
+              "name": "Request not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "requests",
+                    ":requestId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "requestId",
+                      "description": "(Required) The unique identifier of the request."
+                    },
+                    {
+                      "description": "Your BeyondTrust appliance hostname",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Message\": \"Access denied\",\n  \"ErrorCode\": 4003\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your BeyondTrust appliance hostname",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "beyondtrust.example.com",
+      "key": "hostname"
+    },
+    {
+      "type": "string",
+      "value": "https://{{hostname}}/BeyondTrust/api/public/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f96105bc-0aaf-4986-82bb-f658872abf26",
+    "name": "BeyondTrust Password Safe Authentication Requests API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The BeyondTrust Password Safe API provides programmatic access to privileged credential management, secrets management, session management, and access request workflows. It enables developers to integrate privileged account security into CI/CD pipelines, automation frameworks, and enterprise applications.\n\nContact Support:\n Name: BeyondTrust Support",
+      "type": "text/plain"
+    }
+  }
+}

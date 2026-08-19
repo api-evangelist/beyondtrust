@@ -1,0 +1,172 @@
+{
+  "item": [
+    {
+      "id": "fbd0f9e9-9921-4903-bb0e-3bb22c43e8f4",
+      "name": "Managed Accounts",
+      "description": {
+        "content": "Manage privileged accounts and their configurations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8f93bc3f-bfc0-4cb7-862d-d520b2e80c83",
+          "name": "BeyondTrust List Managed Accounts",
+          "request": {
+            "name": "BeyondTrust List Managed Accounts",
+            "description": {
+              "content": "Returns a list of managed accounts available to the caller.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "managedaccounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "systemName",
+                  "value": "<string>",
+                  "description": "Filter accounts by system name."
+                },
+                {
+                  "disabled": false,
+                  "key": "accountName",
+                  "value": "<string>",
+                  "description": "Filter by account name."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your BeyondTrust appliance hostname",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "690a5084-56ae-4b77-8d0d-e68881679264",
+              "name": "List of managed accounts.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "managedaccounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "systemName",
+                      "value": "prod-server-01"
+                    },
+                    {
+                      "key": "accountName",
+                      "value": "administrator"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your BeyondTrust appliance hostname",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"AccountID\": 20,\n    \"AccountName\": \"administrator\",\n    \"SystemID\": 10,\n    \"SystemName\": \"prod-server-01\",\n    \"DomainName\": \"example.com\",\n    \"AccountType\": \"Local\",\n    \"LastChangeDate\": \"2026-04-01T00:00:00Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your BeyondTrust appliance hostname",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "beyondtrust.example.com",
+      "key": "hostname"
+    },
+    {
+      "type": "string",
+      "value": "https://{{hostname}}/BeyondTrust/api/public/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7fb4cf0b-2aac-4102-9820-17e4ecf9c8c7",
+    "name": "BeyondTrust Password Safe Authentication Managed Accounts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The BeyondTrust Password Safe API provides programmatic access to privileged credential management, secrets management, session management, and access request workflows. It enables developers to integrate privileged account security into CI/CD pipelines, automation frameworks, and enterprise applications.\n\nContact Support:\n Name: BeyondTrust Support",
+      "type": "text/plain"
+    }
+  }
+}

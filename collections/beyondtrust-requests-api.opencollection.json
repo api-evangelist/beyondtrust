@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BeyondTrust Password Safe Authentication Requests API",
+    "version": "v3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Requests",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "BeyondTrust List Requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}/BeyondTrust/api/public/v3/requests"
+          },
+          "docs": "Returns all active access requests for the authenticated user."
+        },
+        {
+          "info": {
+            "name": "BeyondTrust Create Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{hostname}/BeyondTrust/api/public/v3/requests",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new access request for a managed account."
+        },
+        {
+          "info": {
+            "name": "BeyondTrust Get Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}/BeyondTrust/api/public/v3/requests/:requestId",
+            "params": [
+              {
+                "name": "requestId",
+                "value": "1001",
+                "type": "path",
+                "description": "The unique identifier of the request."
+              }
+            ]
+          },
+          "docs": "Returns a single access request by ID."
+        },
+        {
+          "info": {
+            "name": "BeyondTrust Update Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{hostname}/BeyondTrust/api/public/v3/requests/:requestId",
+            "params": [
+              {
+                "name": "requestId",
+                "value": "1001",
+                "type": "path",
+                "description": "The unique identifier of the request."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Approves, denies, or cancels an access request."
+        },
+        {
+          "info": {
+            "name": "BeyondTrust Delete Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{hostname}/BeyondTrust/api/public/v3/requests/:requestId",
+            "params": [
+              {
+                "name": "requestId",
+                "value": "1001",
+                "type": "path",
+                "description": "The unique identifier of the request."
+              }
+            ]
+          },
+          "docs": "Cancels and deletes an access request."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BeyondTrust Password Safe Authentication Managed Accounts API",
+    "version": "v3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Managed Accounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "BeyondTrust List Managed Accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}/BeyondTrust/api/public/v3/managedaccounts",
+            "params": [
+              {
+                "name": "systemName",
+                "value": "prod-server-01",
+                "type": "query",
+                "description": "Filter accounts by system name."
+              },
+              {
+                "name": "accountName",
+                "value": "administrator",
+                "type": "query",
+                "description": "Filter by account name."
+              }
+            ]
+          },
+          "docs": "Returns a list of managed accounts available to the caller."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

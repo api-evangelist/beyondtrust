@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BeyondTrust Password Safe Authentication API",
+    "version": "v3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "BeyondTrust Sign App In",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{hostname}/BeyondTrust/api/public/v3/auth/signappin",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Authenticates an application and creates a session. Returns a session token for subsequent API calls."
+        },
+        {
+          "info": {
+            "name": "BeyondTrust Sign App Out",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{hostname}/BeyondTrust/api/public/v3/auth/signappout"
+          },
+          "docs": "Terminates the current application session."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
