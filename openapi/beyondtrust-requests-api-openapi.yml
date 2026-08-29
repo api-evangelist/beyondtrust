@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: BeyondTrust Password Safe Authentication Requests API
   description: The BeyondTrust Password Safe API provides programmatic access to privileged credential management, secrets management, session management, and access request workflows. It enables developers to integrate privileged account security into CI/CD pipelines, automation frameworks, and enterprise applications.
@@ -251,6 +251,25 @@ components:
           - SSH
           - App
           example: View
+    UpdateRequestBody:
+      title: Update Request Body
+      description: Request body for approving, denying, or cancelling a request.
+      type: object
+      required:
+      - Action
+      properties:
+        Action:
+          type: string
+          description: The action to perform on the request.
+          enum:
+          - Approve
+          - Deny
+          - Cancel
+          example: Approve
+        Reason:
+          type: string
+          description: Reason for the action.
+          example: Approved for maintenance window
     Request:
       title: Request
       description: An access request for a privileged account.
@@ -296,9 +315,10 @@ components:
           description: ID of the managed system.
           example: 10
         ExpiresDate:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
           description: When the approved request expires.
           example: '2026-04-19T12:00:00Z'
         RequestedDurationMinutes:
@@ -306,8 +326,9 @@ components:
           description: Requested duration in minutes.
           example: 60
         Reason:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: Reason provided for the access request.
           example: Maintenance window access
         RequestDate:
@@ -328,25 +349,6 @@ components:
           type: integer
           description: Numeric error code.
           example: 4003
-    UpdateRequestBody:
-      title: Update Request Body
-      description: Request body for approving, denying, or cancelling a request.
-      type: object
-      required:
-      - Action
-      properties:
-        Action:
-          type: string
-          description: The action to perform on the request.
-          enum:
-          - Approve
-          - Deny
-          - Cancel
-          example: Approve
-        Reason:
-          type: string
-          description: Reason for the action.
-          example: Approved for maintenance window
   securitySchemes:
     apiKeyAuth:
       type: apiKey

@@ -19,6 +19,14 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "beyondtrust-authentication-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "beyondtrust-credentials-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "beyondtrust-managed-accounts-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "beyondtrust-managed-systems-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "beyondtrust-requests-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "beyondtrust-secrets-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }
