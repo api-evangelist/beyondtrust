@@ -112,12 +112,15 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/beyondtrust.png
 access: 3rd-Party
 created: '2025-02-17'
-modified: '2026-05-19'
+modified: '2026-09-16'
 position: Consuming
-description: BeyondTrust is a cybersecurity company specializing in privileged access management (PAM) and vulnerability management
-  solutions. Their products help organizations prevent data breaches, malware attacks, and insider threats by identifying
-  and controlling the access of privileged users, accounts, and credentials across the enterprise.
+description: BeyondTrust is a cybersecurity company specializing in privileged access management (PAM)
+  and vulnerability management solutions. Their products help organizations prevent data breaches, malware
+  attacks, and insider threats by identifying and controlling the access of privileged users, accounts,
+  and credentials across the enterprise.
 common:
+- type: Website
+  url: https://beyondtrust.com
 - type: AgenticAccess
   url: agentic-access/beyondtrust-agentic-access.yml
 - type: VulnerabilityDisclosure
@@ -143,7 +146,8 @@ common:
   - name: Privileged Password Management
     description: Automatically discover, manage, and rotate passwords for privileged accounts across systems.
   - name: Just-In-Time Privileged Access
-    description: Grant time-limited, approval-based access to privileged accounts minimizing standing privileges.
+    description: Grant time-limited, approval-based access to privileged accounts minimizing standing
+      privileges.
   - name: Secrets Safe
     description: Store, manage, and retrieve application secrets, API keys, and credentials securely.
   - name: Session Management
@@ -161,7 +165,8 @@ common:
   - name: Zero Standing Privileges
     description: Eliminate persistent privileged access by granting just-in-time credentials on demand.
   - name: DevOps Secrets Management
-    description: Retrieve credentials and secrets programmatically in CI/CD pipelines without hardcoded credentials.
+    description: Retrieve credentials and secrets programmatically in CI/CD pipelines without hardcoded
+      credentials.
   - name: Privileged Account Discovery
     description: Automatically discover and on-board all privileged accounts across hybrid environments.
   - name: Compliance Reporting
