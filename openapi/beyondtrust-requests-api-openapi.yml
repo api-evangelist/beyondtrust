@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: BeyondTrust Password Safe Authentication Requests API
+  title: BeyondTrust Password Safe Requests API
   description: The BeyondTrust Password Safe API provides programmatic access to privileged credential management, secrets management, session management, and access request workflows. It enables developers to integrate privileged account security into CI/CD pipelines, automation frameworks, and enterprise applications.
   version: v3
   contact:
@@ -215,42 +215,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    CreateRequestBody:
-      title: Create Request Body
-      description: Request body for creating an access request.
-      type: object
-      required:
-      - SystemID
-      - AccountID
-      - DurationMinutes
-      - Reason
-      - AccessType
-      properties:
-        SystemID:
-          type: integer
-          description: ID of the managed system.
-          example: 10
-        AccountID:
-          type: integer
-          description: ID of the managed account.
-          example: 20
-        DurationMinutes:
-          type: integer
-          description: Requested access duration in minutes.
-          example: 60
-        Reason:
-          type: string
-          description: Business justification for the access request.
-          example: Maintenance window access
-        AccessType:
-          type: string
-          description: Type of access requested.
-          enum:
-          - View
-          - RDP
-          - SSH
-          - App
-          example: View
     UpdateRequestBody:
       title: Update Request Body
       description: Request body for approving, denying, or cancelling a request.
@@ -270,6 +234,19 @@ components:
           type: string
           description: Reason for the action.
           example: Approved for maintenance window
+    ErrorResponse:
+      title: Error Response
+      description: Standard BeyondTrust API error response.
+      type: object
+      properties:
+        Message:
+          type: string
+          description: Human-readable error message.
+          example: Access denied
+        ErrorCode:
+          type: integer
+          description: Numeric error code.
+          example: 4003
     Request:
       title: Request
       description: An access request for a privileged account.
@@ -336,19 +313,42 @@ components:
           format: date-time
           description: When the request was created.
           example: '2026-04-19T10:00:00Z'
-    ErrorResponse:
-      title: Error Response
-      description: Standard BeyondTrust API error response.
+    CreateRequestBody:
+      title: Create Request Body
+      description: Request body for creating an access request.
       type: object
+      required:
+      - SystemID
+      - AccountID
+      - DurationMinutes
+      - Reason
+      - AccessType
       properties:
-        Message:
-          type: string
-          description: Human-readable error message.
-          example: Access denied
-        ErrorCode:
+        SystemID:
           type: integer
-          description: Numeric error code.
-          example: 4003
+          description: ID of the managed system.
+          example: 10
+        AccountID:
+          type: integer
+          description: ID of the managed account.
+          example: 20
+        DurationMinutes:
+          type: integer
+          description: Requested access duration in minutes.
+          example: 60
+        Reason:
+          type: string
+          description: Business justification for the access request.
+          example: Maintenance window access
+        AccessType:
+          type: string
+          description: Type of access requested.
+          enum:
+          - View
+          - RDP
+          - SSH
+          - App
+          example: View
   securitySchemes:
     apiKeyAuth:
       type: apiKey

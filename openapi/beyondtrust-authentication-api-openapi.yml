@@ -86,6 +86,28 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    SessionResponse:
+      title: Session Response
+      description: Authenticated user session details.
+      type: object
+      properties:
+        UserId:
+          type: integer
+          description: Internal user ID.
+          example: 42
+        EmailAddress:
+          type: string
+          format: email
+          description: Email address of the authenticated user.
+          example: apiuser@example.com
+        UserName:
+          type: string
+          description: Username of the authenticated user.
+          example: api-service-account
+        Name:
+          type: string
+          description: Display name of the authenticated user.
+          example: API Service Account
     SignAppInRequest:
       title: Sign App In Request
       description: Authentication credentials for API sign-in.
@@ -115,28 +137,6 @@ components:
           type: integer
           description: Numeric error code.
           example: 4003
-    SessionResponse:
-      title: Session Response
-      description: Authenticated user session details.
-      type: object
-      properties:
-        UserId:
-          type: integer
-          description: Internal user ID.
-          example: 42
-        EmailAddress:
-          type: string
-          format: email
-          description: Email address of the authenticated user.
-          example: apiuser@example.com
-        UserName:
-          type: string
-          description: Username of the authenticated user.
-          example: api-service-account
-        Name:
-          type: string
-          description: Display name of the authenticated user.
-          example: API Service Account
   securitySchemes:
     apiKeyAuth:
       type: apiKey

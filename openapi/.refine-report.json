@@ -1,12 +1,7 @@
 {
   "provider": "beyondtrust",
   "sources": [
-    "beyondtrust-authentication-api-openapi.yml",
-    "beyondtrust-credentials-api-openapi.yml",
-    "beyondtrust-managed-accounts-api-openapi.yml",
-    "beyondtrust-managed-systems-api-openapi.yml",
-    "beyondtrust-requests-api-openapi.yml",
-    "beyondtrust-secrets-api-openapi.yml"
+    "_ae-authored/beyondtrust-password-safe-api.yaml"
   ],
   "outputs": [
     "beyondtrust-authentication-api-openapi.yml",
@@ -20,13 +15,16 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "beyondtrust-authentication-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "beyondtrust-credentials-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "beyondtrust-managed-accounts-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "beyondtrust-managed-systems-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "beyondtrust-requests-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "beyondtrust-secrets-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "beyondtrust-password-safe-api.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "beyondtrust-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "beyondtrust-credentials-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "beyondtrust-managed-accounts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "beyondtrust-managed-systems-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "beyondtrust-requests-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "beyondtrust-secrets-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
