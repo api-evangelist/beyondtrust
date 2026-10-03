@@ -86,19 +86,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ErrorResponse:
-      title: Error Response
-      description: Standard BeyondTrust API error response.
-      type: object
-      properties:
-        Message:
-          type: string
-          description: Human-readable error message.
-          example: Access denied
-        ErrorCode:
-          type: integer
-          description: Numeric error code.
-          example: 4003
     SessionResponse:
       title: Session Response
       description: Authenticated user session details.
@@ -121,6 +108,19 @@ components:
           type: string
           description: Display name of the authenticated user.
           example: API Service Account
+    ErrorResponse:
+      title: Error Response
+      description: Standard BeyondTrust API error response.
+      type: object
+      properties:
+        Message:
+          type: string
+          description: Human-readable error message.
+          example: Access denied
+        ErrorCode:
+          type: integer
+          description: Numeric error code.
+          example: 4003
     SignAppInRequest:
       title: Sign App In Request
       description: Authentication credentials for API sign-in.
