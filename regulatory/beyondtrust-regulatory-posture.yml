@@ -1,0 +1,17 @@
+generated: '2026-10-03'
+method: searched
+source: https://www.beyondtrust.com/privacy-center/privacy-notice
+http_status: 200
+signals:
+  data_subject_request:
+    quote: "If you have questions, including any requests to exercise your rights, please contact our DPO, Valerie Moulden, at dataprotectionofficer@beyondtrust.com."
+    url: https://www.beyondtrust.com/privacy-center/privacy-notice
+    note: Provides contact for exercising data subject rights.
+  subprocessors:
+    quote: "We process your personal data based on our legitimate interests, or the legitimate interests of a third party."
+    url: https://www.beyondtrust.com/privacy-center/privacy-notice
+    note: Mentions processing based on third‑party legitimate interests.
+  notice_and_action:
+    quote: "including Data Privacy Framework complaints, please contact our Data Protection Officer at dataprotectionofficer@beyondtrust.com."
+    url: https://www.beyondtrust.com/privacy-center/privacy-notice
+    note: Offers mechanism for complaints and actions.

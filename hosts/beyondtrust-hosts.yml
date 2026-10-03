@@ -1,0 +1,96 @@
+generated: '2026-10-03'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 7
+  own: 4
+  other_domain: 0
+  platform: 3
+  roles:
+  - api
+  - docs
+  - other
+  - security
+  - source
+  - website
+hosts:
+- host: api.beyondtrust.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: beyondtrust.com
+  role: api
+  relation: own
+- host: beyondtrust.com
+  found_by:
+  - pointer
+  - probed
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Website
+  serves:
+  - cdn
+  vendor: cloudflare
+  registrable_domain: beyondtrust.com
+  role: website
+  relation: own
+- host: docs.beyondtrust.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Portal
+  - GettingStarted
+  serves:
+  - docs
+  - documentation
+  vendor: readme
+  registrable_domain: beyondtrust.com
+  role: docs
+  relation: own
+- host: github.com
+  found_by:
+  - pointer
+  types:
+  - GitHubOrganization
+  serves: []
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: raw.githubusercontent.com
+  found_by:
+  - pointer
+  types:
+  - SpectralRules
+  - Vocabulary
+  serves: []
+  registrable_domain: githubusercontent.com
+  role: other
+  relation: platform
+- host: www.beyondtrust.com
+  found_by:
+  - pointer
+  types:
+  - Security
+  serves: []
+  registrable_domain: beyondtrust.com
+  role: security
+  relation: own
+- host: www.linkedin.com
+  found_by:
+  - pointer
+  types:
+  - LinkedIn
+  serves: []
+  registrable_domain: linkedin.com
+  role: other
+  relation: platform

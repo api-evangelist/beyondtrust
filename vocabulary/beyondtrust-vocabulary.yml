@@ -1,0 +1,105 @@
+generated: '2026-10-03'
+method: derived
+generator: derive-vocabulary.py
+source:
+- openapi/beyondtrust-authentication-api-openapi.yml
+- openapi/beyondtrust-credentials-api-openapi.yml
+- openapi/beyondtrust-managed-accounts-api-openapi.yml
+- openapi/beyondtrust-managed-systems-api-openapi.yml
+- openapi/beyondtrust-requests-api-openapi.yml
+vocabulary:
+  name: BeyondTrust Domain Vocabulary
+  description: 'Terms declared by BeyondTrust''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-03'
+  terms:
+  - term: Authentication
+    definition: API authentication and authorization
+    tags:
+    - Resource Group
+    source: openapi/beyondtrust-authentication-api-openapi.yml
+  - term: Credentials
+    definition: Manage privileged account credentials and passwords
+    tags:
+    - Resource Group
+    source: openapi/beyondtrust-credentials-api-openapi.yml
+  - term: Managed Accounts
+    definition: Manage privileged accounts and their configurations
+    tags:
+    - Resource Group
+    source: openapi/beyondtrust-managed-accounts-api-openapi.yml
+  - term: Managed Systems
+    definition: Manage systems registered in Password Safe
+    tags:
+    - Resource Group
+    source: openapi/beyondtrust-managed-systems-api-openapi.yml
+  - term: Requests
+    definition: Submit and manage access requests for privileged accounts
+    tags:
+    - Resource Group
+    source: openapi/beyondtrust-requests-api-openapi.yml
+  - term: Secrets
+    definition: Manage secrets and secret store entries
+    tags:
+    - Resource Group
+    source: openapi/beyondtrust-secrets-api-openapi.yml
+  - term: Session Response
+    definition: Authenticated user session details.
+    tags:
+    - Object
+    source: openapi/beyondtrust-authentication-api-openapi.yml#/components/schemas/SessionResponse
+  - term: Error Response
+    definition: Standard BeyondTrust API error response.
+    tags:
+    - Object
+    source: openapi/beyondtrust-authentication-api-openapi.yml#/components/schemas/ErrorResponse
+  - term: Sign App In Request
+    definition: Authentication credentials for API sign-in.
+    tags:
+    - Object
+    source: openapi/beyondtrust-authentication-api-openapi.yml#/components/schemas/SignAppInRequest
+  - term: Credential Response
+    definition: Credentials retrieved for an approved access request.
+    tags:
+    - Object
+    source: openapi/beyondtrust-credentials-api-openapi.yml#/components/schemas/CredentialResponse
+  - term: Managed Account
+    definition: A privileged account managed by BeyondTrust Password Safe.
+    tags:
+    - Object
+    source: openapi/beyondtrust-managed-accounts-api-openapi.yml#/components/schemas/ManagedAccount
+  - term: Managed System
+    definition: A system registered in BeyondTrust Password Safe.
+    tags:
+    - Object
+    source: openapi/beyondtrust-managed-systems-api-openapi.yml#/components/schemas/ManagedSystem
+  - term: Create Request Body
+    definition: Request body for creating an access request.
+    tags:
+    - Object
+    source: openapi/beyondtrust-requests-api-openapi.yml#/components/schemas/CreateRequestBody
+  - term: Update Request Body
+    definition: Request body for approving, denying, or cancelling a request.
+    tags:
+    - Object
+    source: openapi/beyondtrust-requests-api-openapi.yml#/components/schemas/UpdateRequestBody
+  - term: Request
+    definition: An access request for a privileged account.
+    tags:
+    - Object
+    source: openapi/beyondtrust-requests-api-openapi.yml#/components/schemas/Request
+  - term: Secret With Value
+    definition: A secret including its sensitive value.
+    tags:
+    - Object
+    source: openapi/beyondtrust-secrets-api-openapi.yml#/components/schemas/SecretWithValue
+  - term: Create Secret Request
+    definition: Request body for creating a new secret.
+    tags:
+    - Object
+    source: openapi/beyondtrust-secrets-api-openapi.yml#/components/schemas/CreateSecretRequest
+  - term: Secret
+    definition: A secret stored in BeyondTrust Secrets Safe.
+    tags:
+    - Object
+    source: openapi/beyondtrust-secrets-api-openapi.yml#/components/schemas/Secret

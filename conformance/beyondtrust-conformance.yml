@@ -1,0 +1,32 @@
+generated: '2026-10-03'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://docs.beyondtrust.com/entitle/docs/chronicle-security-operations
+sources:
+- https://docs.beyondtrust.com/entitle/docs/chronicle-security-operations
+- https://docs.beyondtrust.com/entitle/docs/pathfinder-chronicle-security-operations
+- https://docs.beyondtrust.com/entitle/docs/identity-security-insights
+- https://docs.beyondtrust.com/bips/docs/on-prem-bi-authentication-security-provider
+standards:
+- id: gdpr
+  conforms: true
+  evidence: Meets compliance requirements: Maintain a robust audit trail of all Entitle activities for compliance with industry regulations (e.g.,
+    GDPR, SOX, HIPAA) and internal security policies.
+- id: hipaa
+  conforms: true
+  evidence: Meets compliance requirements: Maintain a robust audit trail of all Entitle activities for compliance with industry regulations (e.g.,
+    GDPR, SOX, HIPAA) and internal security policies.
+- id: openapi-3.2
+  conforms: true
+  evidence: the document declares 3.2.0
+- id: oauth2
+  conforms: false
+  evidence: 'securitySchemes: apiKeyAuth (apiKey)'
+- id: rfc9457
+  conforms: false
+  evidence: no response declares application/problem+json
+- id: idempotency
+  conforms: false
+  evidence: no idempotency key parameter on mutating operations
+docs: https://docs.beyondtrust.com/entitle/docs/chronicle-security-operations
+note: 7 extracted row(s) were dropped because their quote was not on the page.

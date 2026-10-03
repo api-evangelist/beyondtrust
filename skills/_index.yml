@@ -1,0 +1,11 @@
+generated: '2026-10-03'
+method: generated
+generator: extract-docs-artifacts.py skills (local)
+source: openapi/beyondtrust-requests-api-openapi.yml
+skills:
+- file: skills/beyondtrust-authentication-sign-in-out.md
+  name: beyondtrust-authentication-sign-in-out
+  api: openapi/beyondtrust-authentication-api-openapi.yml
+  operations:
+  - signAppIn
+  - signAppOut

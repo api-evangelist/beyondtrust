@@ -1,0 +1,53 @@
+generated: '2026-10-03'
+method: derived
+generator: derive-data-model.py
+source:
+- openapi/beyondtrust-authentication-api-openapi.yml
+- openapi/beyondtrust-credentials-api-openapi.yml
+- openapi/beyondtrust-managed-accounts-api-openapi.yml
+- openapi/beyondtrust-managed-systems-api-openapi.yml
+- openapi/beyondtrust-requests-api-openapi.yml
+- openapi/beyondtrust-secrets-api-openapi.yml
+notation: has_one = property $ref; has_many = array of $ref; belongs_to = <entity>_id field
+summary:
+  entities: 12
+  entities_in_spec: 12
+  relationships: 0
+entities:
+- name: CreateRequestBody
+  fields: 5
+  description: Request body for creating an access request.
+- name: CreateSecretRequest
+  fields: 6
+  description: Request body for creating a new secret.
+- name: CredentialResponse
+  fields: 2
+  description: Credentials retrieved for an approved access request.
+- name: ErrorResponse
+  fields: 2
+  description: Standard BeyondTrust API error response.
+- name: ManagedAccount
+  fields: 8
+  description: A privileged account managed by BeyondTrust Password Safe.
+- name: ManagedSystem
+  fields: 6
+  description: A system registered in BeyondTrust Password Safe.
+- name: Request
+  fields: 11
+  description: An access request for a privileged account.
+- name: Secret
+  fields: 7
+  description: A secret stored in BeyondTrust Secrets Safe.
+- name: SecretWithValue
+  fields: 7
+  description: A secret including its sensitive value.
+- name: SessionResponse
+  fields: 4
+  description: Authenticated user session details.
+- name: SignAppInRequest
+  fields: 2
+  description: Authentication credentials for API sign-in.
+- name: UpdateRequestBody
+  fields: 2
+  description: Request body for approving, denying, or cancelling a request.
+relationships: []

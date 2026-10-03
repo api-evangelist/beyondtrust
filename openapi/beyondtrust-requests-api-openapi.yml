@@ -215,6 +215,25 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    UpdateRequestBody:
+      title: Update Request Body
+      description: Request body for approving, denying, or cancelling a request.
+      type: object
+      required:
+      - Action
+      properties:
+        Action:
+          type: string
+          description: The action to perform on the request.
+          enum:
+          - Approve
+          - Deny
+          - Cancel
+          example: Approve
+        Reason:
+          type: string
+          description: Reason for the action.
+          example: Approved for maintenance window
     CreateRequestBody:
       title: Create Request Body
       description: Request body for creating an access request.
@@ -251,25 +270,6 @@ components:
           - SSH
           - App
           example: View
-    UpdateRequestBody:
-      title: Update Request Body
-      description: Request body for approving, denying, or cancelling a request.
-      type: object
-      required:
-      - Action
-      properties:
-        Action:
-          type: string
-          description: The action to perform on the request.
-          enum:
-          - Approve
-          - Deny
-          - Cancel
-          example: Approve
-        Reason:
-          type: string
-          description: Reason for the action.
-          example: Approved for maintenance window
     Request:
       title: Request
       description: An access request for a privileged account.

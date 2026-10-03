@@ -1,82 +1,15 @@
 aid: beyondtrust
+
 url: https://raw.githubusercontent.com/api-evangelist/beyondtrust/refs/heads/main/apis.yml
+
 x-docs-platform: readme
+
 x-docs-platform-confidence: high
+
 x-docs-platform-checked: 2026-09-20
-apis:
-- aid: beyondtrust:beyondtrust-authentication-api
-  name: BeyondTrust Authentication API
-  description: API authentication and authorization
-  humanURL: https://docs.beyondtrust.com/
-  baseURL: https://{host}/BeyondTrust/api/public/v3
-  tags:
-  - Authentication
-  properties:
-  - type: OpenAPI
-    url: openapi/beyondtrust-authentication-api-openapi.yml
-  - type: Documentation
-    url: https://docs.beyondtrust.com/
-- aid: beyondtrust:beyondtrust-credentials-api
-  name: BeyondTrust Credentials API
-  description: Manage privileged account credentials and passwords
-  humanURL: https://docs.beyondtrust.com/
-  baseURL: https://{host}/BeyondTrust/api/public/v3
-  tags:
-  - Credentials
-  properties:
-  - type: OpenAPI
-    url: openapi/beyondtrust-credentials-api-openapi.yml
-  - type: Documentation
-    url: https://docs.beyondtrust.com/
-- aid: beyondtrust:beyondtrust-managed-accounts-api
-  name: BeyondTrust Managed Accounts API
-  description: Manage privileged accounts and their configurations
-  humanURL: https://docs.beyondtrust.com/
-  baseURL: https://{host}/BeyondTrust/api/public/v3
-  tags:
-  - Managed Accounts
-  properties:
-  - type: OpenAPI
-    url: openapi/beyondtrust-managed-accounts-api-openapi.yml
-  - type: Documentation
-    url: https://docs.beyondtrust.com/
-- aid: beyondtrust:beyondtrust-managed-systems-api
-  name: BeyondTrust Managed Systems API
-  description: Manage systems registered in Password Safe
-  humanURL: https://docs.beyondtrust.com/
-  baseURL: https://{host}/BeyondTrust/api/public/v3
-  tags:
-  - Managed Systems
-  properties:
-  - type: OpenAPI
-    url: openapi/beyondtrust-managed-systems-api-openapi.yml
-  - type: Documentation
-    url: https://docs.beyondtrust.com/
-- aid: beyondtrust:beyondtrust-requests-api
-  name: BeyondTrust Requests API
-  description: Submit and manage access requests for privileged accounts
-  humanURL: https://docs.beyondtrust.com/
-  baseURL: https://{host}/BeyondTrust/api/public/v3
-  tags:
-  - Requests
-  properties:
-  - type: OpenAPI
-    url: openapi/beyondtrust-requests-api-openapi.yml
-  - type: Documentation
-    url: https://docs.beyondtrust.com/
-- aid: beyondtrust:beyondtrust-secrets-api
-  name: BeyondTrust Secrets API
-  description: Manage secrets and secret store entries
-  humanURL: https://docs.beyondtrust.com/
-  baseURL: https://{host}/BeyondTrust/api/public/v3
-  tags:
-  - Secrets
-  properties:
-  - type: OpenAPI
-    url: openapi/beyondtrust-secrets-api-openapi.yml
-  - type: Documentation
-    url: https://docs.beyondtrust.com/
+
 name: BeyondTrust
+
 tags:
 - Access
 - Access Management
@@ -86,7 +19,9 @@ tags:
 - Security
 - Secrets
 - Zero Trust
+
 kind: contract
+
 deliveryModel:
   model: unknown
   open_source: false
@@ -98,6 +33,7 @@ deliveryModel:
   - openapi
   generated: '2026-08-28'
   method: derived
+
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -112,16 +48,66 @@ accessModel:
   - security
   generated: '2026-09-03'
   method: derived
+
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/beyondtrust.png
+
 access: 3rd-Party
+
 created: '2025-02-17'
+
 modified: '2026-09-16'
+
 position: Consuming
-description: BeyondTrust is a cybersecurity company specializing in privileged access management (PAM)
-  and vulnerability management solutions. Their products help organizations prevent data breaches, malware
-  attacks, and insider threats by identifying and controlling the access of privileged users, accounts,
-  and credentials across the enterprise.
+
+description: BeyondTrust is a cybersecurity company specializing in privileged access management (PAM) and vulnerability management solutions.
+  Their products help organizations prevent data breaches, malware attacks, and insider threats by identifying and controlling the access of privileged
+  users, accounts, and credentials across the enterprise.
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+
+specificationVersion: '0.23'
+
 common:
+- type: SecurityTxt
+  url: well-known/beyondtrust-beyondtrust-security.txt
+- type: FinOps
+  url: finops/beyondtrust-finops.yml
+- type: RateLimits
+  url: rate-limits/beyondtrust-rate-limits.yml
+- type: Plans
+  url: plans/beyondtrust-plans-pricing.yml
+- type: Spectral
+  url: rules/beyondtrust-spectral-rules.yml
+- type: Spectral
+  url: rules/beyondtrust-rules.yml
+- type: Spectral
+  url: rules/beyondtrust-jsonschema-spectral-rules.yml
+- type: JSONLD
+  url: json-ld/beyondtrust-context.jsonld
+- type: Vocabulary
+  url: vocabulary/beyondtrust-vocabulary.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Webhooks
+  url: asyncapi/beyondtrust-webhooks.yml
+- type: DataModel
+  url: data-model/beyondtrust-data-model.yml
+- type: Security
+  url: https://www.beyondtrust.com/disclosure
+- type: ErrorCatalog
+  url: errors/beyondtrust-problem-types.yml
+- type: Conformance
+  url: conformance/beyondtrust-conformance.yml
+- type: SecurityTxt
+  url: well-known/beyondtrust-security.txt
+- type: WellKnown
+  url: well-known/beyondtrust-well-known.yml
+- type: Hosts
+  url: hosts/beyondtrust-hosts.yml
+- type: Vendors
+  url: vendors/beyondtrust-vendors.yml
 - type: Website
   url: https://beyondtrust.com
 - type: AgenticAccess
@@ -149,8 +135,7 @@ common:
   - name: Privileged Password Management
     description: Automatically discover, manage, and rotate passwords for privileged accounts across systems.
   - name: Just-In-Time Privileged Access
-    description: Grant time-limited, approval-based access to privileged accounts minimizing standing
-      privileges.
+    description: Grant time-limited, approval-based access to privileged accounts minimizing standing privileges.
   - name: Secrets Safe
     description: Store, manage, and retrieve application secrets, API keys, and credentials securely.
   - name: Session Management
@@ -168,8 +153,7 @@ common:
   - name: Zero Standing Privileges
     description: Eliminate persistent privileged access by granting just-in-time credentials on demand.
   - name: DevOps Secrets Management
-    description: Retrieve credentials and secrets programmatically in CI/CD pipelines without hardcoded
-      credentials.
+    description: Retrieve credentials and secrets programmatically in CI/CD pipelines without hardcoded credentials.
   - name: Privileged Account Discovery
     description: Automatically discover and on-board all privileged accounts across hybrid environments.
   - name: Compliance Reporting
@@ -194,9 +178,105 @@ common:
     description: Forward audit logs and session recordings to Splunk for SIEM analysis.
   - name: Terraform
     description: Manage BeyondTrust Password Safe resources as infrastructure as code.
-- type: LlmsText
-  url: https://docs.beyondtrust.com/llms.txt
-maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
-specificationVersion: '0.23'
+
+apis:
+- aid: beyondtrust:beyondtrust-authentication-api
+  name: BeyondTrust Authentication API
+  description: API authentication and authorization
+  humanURL: https://docs.beyondtrust.com/
+  baseURL: https://{host}/BeyondTrust/api/public/v3
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/beyondtrust-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://docs.beyondtrust.com/
+  - type: JSONSchema
+    url: json-schema/beyondtrust-session-response-schema.json
+  - type: JSONSchema
+    url: json-schema/beyondtrust-sign-app-in-request-schema.json
+- aid: beyondtrust:beyondtrust-credentials-api
+  name: BeyondTrust Credentials API
+  description: Manage privileged account credentials and passwords
+  humanURL: https://docs.beyondtrust.com/
+  baseURL: https://{host}/BeyondTrust/api/public/v3
+  tags:
+  - Credentials
+  properties:
+  - type: OpenAPI
+    url: openapi/beyondtrust-credentials-api-openapi.yml
+  - type: Documentation
+    url: https://docs.beyondtrust.com/
+  - type: JSONSchema
+    url: json-schema/beyondtrust-credential-response-schema.json
+- aid: beyondtrust:beyondtrust-managed-accounts-api
+  name: BeyondTrust Managed Accounts API
+  description: Manage privileged accounts and their configurations
+  humanURL: https://docs.beyondtrust.com/
+  baseURL: https://{host}/BeyondTrust/api/public/v3
+  tags:
+  - Managed Accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/beyondtrust-managed-accounts-api-openapi.yml
+  - type: Documentation
+    url: https://docs.beyondtrust.com/
+  - type: JSONSchema
+    url: json-schema/beyondtrust-managed-account-schema.json
+- aid: beyondtrust:beyondtrust-managed-systems-api
+  name: BeyondTrust Managed Systems API
+  description: Manage systems registered in Password Safe
+  humanURL: https://docs.beyondtrust.com/
+  baseURL: https://{host}/BeyondTrust/api/public/v3
+  tags:
+  - Managed Systems
+  properties:
+  - type: OpenAPI
+    url: openapi/beyondtrust-managed-systems-api-openapi.yml
+  - type: Documentation
+    url: https://docs.beyondtrust.com/
+  - type: JSONSchema
+    url: json-schema/beyondtrust-managed-system-schema.json
+- aid: beyondtrust:beyondtrust-requests-api
+  name: BeyondTrust Requests API
+  description: Submit and manage access requests for privileged accounts
+  humanURL: https://docs.beyondtrust.com/
+  baseURL: https://{host}/BeyondTrust/api/public/v3
+  tags:
+  - Requests
+  properties:
+  - type: OpenAPI
+    url: openapi/beyondtrust-requests-api-openapi.yml
+  - type: Documentation
+    url: https://docs.beyondtrust.com/
+  - type: JSONSchema
+    url: json-schema/beyondtrust-request-schema.json
+  - type: JSONSchema
+    url: json-schema/beyondtrust-create-request-body-schema.json
+  - type: JSONSchema
+    url: json-schema/beyondtrust-update-request-body-schema.json
+- aid: beyondtrust:beyondtrust-secrets-api
+  name: BeyondTrust Secrets API
+  description: Manage secrets and secret store entries
+  humanURL: https://docs.beyondtrust.com/
+  baseURL: https://{host}/BeyondTrust/api/public/v3
+  tags:
+  - Secrets
+  properties:
+  - type: OpenAPI
+    url: openapi/beyondtrust-secrets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.beyondtrust.com/
+  - type: JSONSchema
+    url: json-schema/beyondtrust-secret-schema.json
+  - type: JSONSchema
+    url: json-schema/beyondtrust-secret-with-value-schema.json
+  - type: JSONSchema
+    url: json-schema/beyondtrust-create-secret-request-schema.json
+x-enrichment:
+  date: '2026-10-03'
+  status: enriched
+  artifacts_added: 16
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local

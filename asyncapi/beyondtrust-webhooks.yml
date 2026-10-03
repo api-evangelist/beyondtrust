@@ -1,0 +1,42 @@
+generated: '2026-10-03'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://docs.beyondtrust.com/entitle/docs/okta-webhooks
+sources:
+- https://docs.beyondtrust.com/entitle/docs/okta-webhooks
+- https://docs.beyondtrust.com/entitle/docs/email-notifications
+- https://docs.beyondtrust.com/adb/docs/monitor-events
+- https://docs.beyondtrust.com/bips/docs/cloud-sample-syslog-output-formats-in-beyondinsight-event-forwarder
+description: BeyondTrust Entitle supports Okta webhooks that deliver real‑time events to a URL you provide.
+events:
+- event: User added to group
+  description: Sent when a user is added to an Okta group.
+- event: User removed from group
+  description: Sent when a user is removed from an Okta group.
+- event: User created
+  description: Sent when a new Okta user is created.
+- event: User deleted
+  description: Sent when an Okta user is deleted.
+- event: A user's admin privileges changed
+  description: Sent when a user is first assigned a predefined admin role.
+- event: All of user's admin privilege revoked
+  description: Sent only when the user's last predefined admin role is removed.
+- event: Admin role assignment is created
+  description: Sent when a custom admin role is assigned to a user or group.
+- event: Admin assignment is deleted
+  description: Sent when a custom admin role binding is removed.
+- event: Create Okta group
+  description: Sent when an Okta group is created.
+- event: Delete Okta group
+  description: Sent when an Okta group is deleted.
+- event: User assigned to app
+  description: Sent when a user is assigned to an Okta application.
+- event: User unassigned from app
+  description: Sent when a user is unassigned from an Okta application.
+- event: Create application
+  description: Sent when an Okta application is created.
+- event: Delete application
+  description: Sent when an Okta application is deleted.
+delivery:
+  auth: 'Authentication Field: Authorization header with a secret provided by Entitle'
+docs: https://docs.beyondtrust.com/entitle/docs/okta-webhooks
