@@ -55,7 +55,7 @@ access: 3rd-Party
 
 created: '2025-02-17'
 
-modified: '2026-09-16'
+modified: '2026-10-06'
 
 position: Consuming
 
@@ -70,6 +70,8 @@ maintainers:
 specificationVersion: '0.23'
 
 common:
+- url: https://www.beyondtrust.com/blog
+  type: Blog
 - type: SecurityTxt
   url: well-known/beyondtrust-beyondtrust-security.txt
 - type: FinOps
