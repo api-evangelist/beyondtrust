@@ -5,6 +5,8 @@ checked:
 - https://azuremarketplace.microsoft.com/
 - https://github.com/marketplace?type=actions
 - https://marketplace.atlassian.com/
+- microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
+- okta/integrations/okta-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: AWS Marketplace
@@ -79,6 +81,49 @@ edges:
   publisher_name: BeyondTrust Corp.
   detected_by: sweep-devtools.py
   detected: '2026-10-14'
+- partner_name: Microsoft Sentinel (own)
+  partner: microsoft-sentinel
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/BeyondTrustPMCloud
+  mirror_of: microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
+  apps:
+  - BeyondTrustPMCloud
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Security - Threat Protection
+  badges:
+  - support-tier:partner
+- partner_name: Okta (own)
+  partner: okta
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.okta.com/integrations/beyondtrust/
+  mirror_of: okta/integrations/okta-integration-edges.yml
+  apps:
+  - BeyondTrust
+  - BeyondTrust Privilege Management Cloud - Windows and Mac
+  - BeyondTrust Remote Support and Privileged Remote Access (Representatives)
+  listing_count: 3
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Single Sign-On
+  badges:
+  - OKTA_VERIFIED
+  features:
+  - SAML
+  - OIDC
 source:
 - https://github.com/marketplace?type=actions
 - https://marketplace.atlassian.com/
