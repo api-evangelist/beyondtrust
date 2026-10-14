@@ -27,3 +27,27 @@
   relationship: distribution-channel
   status: not-a-workflow
   arazzo: null
+- slug: beyondtrust-github-marketplace-actions
+  label: GitHub Marketplace (actions)
+  partner: github-actions
+  partner_name: GitHub Marketplace (actions)
+  type: marketplace
+  marketplace: github-actions
+  channel: partner-built
+  evidence: https://github.com/marketplace/actions/secrets-safe-action
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: beyondtrust-atlassian-marketplace
+  label: Atlassian Marketplace
+  partner: atlassian
+  partner_name: Atlassian Marketplace
+  type: marketplace
+  marketplace: atlassian
+  channel: partner-built
+  evidence: https://marketplace.atlassian.com/vendors/1220214/beyondtrust-corp
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null

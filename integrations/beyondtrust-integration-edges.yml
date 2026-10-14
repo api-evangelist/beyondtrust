@@ -3,6 +3,8 @@ method: searched
 checked:
 - https://aws.amazon.com/marketplace/
 - https://azuremarketplace.microsoft.com/
+- https://github.com/marketplace?type=actions
+- https://marketplace.atlassian.com/
 marketplace_apps: []
 edges:
 - partner_name: AWS Marketplace
@@ -41,3 +43,42 @@ edges:
   seller_name: BeyondTrust Corporation
   detected_by: sweep-cloud-marketplaces.py
   detected: '2026-10-13'
+- partner_name: GitHub Marketplace (actions)
+  partner: github-actions
+  partner_match: aggregator
+  type: marketplace
+  marketplace: github-actions
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://github.com/marketplace/actions/secrets-safe-action
+  listing_count: 2
+  apps:
+  - Secrets Safe Action
+  - BeyondTrust Workload Credentials Action
+  publisher_name: BeyondTrust Corporation
+  badges:
+  - Verified creator
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: Atlassian Marketplace
+  partner: atlassian
+  partner_match: aggregator
+  type: marketplace
+  marketplace: atlassian
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://marketplace.atlassian.com/vendors/1220214/beyondtrust-corp
+  listing_count: 4
+  apps:
+  - BeyondTrust Remote Support integration for Jira
+  - BeyondTrust Privilege Management Integration for Jira
+  - BeyondTrust Password Safe Integration for Jira
+  - BeyondTrust Privileged Remote Access Integration for Jira
+  publisher_name: BeyondTrust Corp.
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+source:
+- https://github.com/marketplace?type=actions
+- https://marketplace.atlassian.com/
