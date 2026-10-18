@@ -12,6 +12,15 @@ name: BeyondTrust
 
 tags:
 - Access
+- Identity and Access Management
+- Compliance
+- Credentials
+- Privileged Access Management
+- Security
+- Secrets
+- Zero Trust
+tags_raw:
+- Access
 - Access Management
 - Compliance
 - Credentials
