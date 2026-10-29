@@ -1,4 +1,4 @@
-# BeyondTrust (beyondtrust)
+# BeyondTrust
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,123 +66,201 @@
 
 BeyondTrust is a cybersecurity company specializing in privileged access management (PAM) and vulnerability management solutions. Their products help organizations prevent data breaches, malware attacks, and insider threats by identifying and controlling the access of privileged users, accounts, and credentials across the enterprise.
 
-**URL:** [https://docs.beyondtrust.com/](https://docs.beyondtrust.com/)
+**Areas:** Access · Identity and Access Management · Compliance · Credentials · Privileged Access Management · Security · Secrets · Zero Trust
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## BeyondTrust on APIs.io
 
-## Tags:
+Everything profiled for BeyondTrust is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/beyondtrust/](https://apis.io/providers/beyondtrust/)** — or go straight to one of the APIs or properties below.
 
- - Access, Access Management, Compliance, Credentials, Privileged Access, Security, Secrets, Zero Trust
+### APIs (6)
 
-## Timestamps
+- [BeyondTrust Authentication API](https://apis.io/apis/beyondtrust/beyondtrust-authentication-api/) — API authentication and authorization
+- [BeyondTrust Credentials API](https://apis.io/apis/beyondtrust/beyondtrust-credentials-api/) — Manage privileged account credentials and passwords
+- [BeyondTrust Managed Accounts API](https://apis.io/apis/beyondtrust/beyondtrust-managed-accounts-api/) — Manage privileged accounts and their configurations
+- [BeyondTrust Managed Systems API](https://apis.io/apis/beyondtrust/beyondtrust-managed-systems-api/) — Manage systems registered in Password Safe
+- [BeyondTrust Requests API](https://apis.io/apis/beyondtrust/beyondtrust-requests-api/) — Submit and manage access requests for privileged accounts
+- [BeyondTrust Secrets API](https://apis.io/apis/beyondtrust/beyondtrust-secrets-api/) — Manage secrets and secret store entries
 
-- **Created:** 2025-02-17
-- **Modified:** 2026-04-19
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### BeyondTrust Password Safe API
-The BeyondTrust Password Safe API provides programmatic access to privileged credential management, secrets management, and access request workflows. It enables organizations to implement just-in-time privileged access and integrate credential retrieval into automation pipelines.
+#### AsyncAPI (1)
 
-**Human URL:** [https://docs.beyondtrust.com/](https://docs.beyondtrust.com/)
+Event-driven and webhook contracts.
 
-#### Tags:
+- [Beyondtrust Webhooks](https://apis.io/asyncapis/beyondtrust/beyondtrust-webhooks/)
 
- - Privileged Access Management, Secrets Management, Security, Zero Trust, Credentials
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Documentation](https://docs.beyondtrust.com/)
-- [OpenAPI](openapi/beyondtrust-password-safe-api.yaml)
+- [Beyondtrust Agentic Access](https://apis.io/agentic-access/beyondtrust/beyondtrust-agentic-access/)
 
-## Common Properties
+#### JSON Schema (11)
 
-- [Portal](https://docs.beyondtrust.com/)
-- [GettingStarted](https://docs.beyondtrust.com/)
-- [GitHubOrganization](https://github.com/BeyondTrust)
+The data models the API reads and writes.
 
-## Features
+- [CreateRequestBody](https://apis.io/schemas/beyondtrust/beyondtrust-create-request-body/)
+- [CreateSecretRequest](https://apis.io/schemas/beyondtrust/beyondtrust-create-secret-request/)
+- [CredentialResponse](https://apis.io/schemas/beyondtrust/beyondtrust-credential-response/)
+- [ManagedAccount](https://apis.io/schemas/beyondtrust/beyondtrust-managed-account/)
+- [ManagedSystem](https://apis.io/schemas/beyondtrust/beyondtrust-managed-system/)
+- [Request](https://apis.io/schemas/beyondtrust/beyondtrust-request/)
+- [Secret](https://apis.io/schemas/beyondtrust/beyondtrust-secret/)
+- [SecretWithValue](https://apis.io/schemas/beyondtrust/beyondtrust-secret-with-value/)
+- [SessionResponse](https://apis.io/schemas/beyondtrust/beyondtrust-session-response/)
+- [SignAppInRequest](https://apis.io/schemas/beyondtrust/beyondtrust-sign-app-in-request/)
+- [UpdateRequestBody](https://apis.io/schemas/beyondtrust/beyondtrust-update-request-body/)
 
-| Name | Description |
-|------|-------------|
-| Privileged Password Management | Automatically discover, manage, and rotate passwords for privileged accounts across systems. |
-| Just-In-Time Privileged Access | Grant time-limited, approval-based access to privileged accounts minimizing standing privileges. |
-| Secrets Safe | Store, manage, and retrieve application secrets, API keys, and credentials securely. |
-| Session Management | Record, monitor, and control privileged remote sessions for audit and compliance. |
-| Endpoint Privilege Management | Remove admin rights from endpoints while allowing approved applications to run. |
-| Privileged Remote Access | Provide secure remote access to privileged systems without VPN or exposed credentials. |
-| Vulnerability Management | Identify and prioritize vulnerabilities across the attack surface. |
-| AD Bridge | Extend Active Directory authentication and group policies to Unix and Linux systems. |
+#### JSON Structure (11)
 
-## Use Cases
+Data models expressed in JSON Structure.
 
-| Name | Description |
-|------|-------------|
-| Zero Standing Privileges | Eliminate persistent privileged access by granting just-in-time credentials on demand. |
-| DevOps Secrets Management | Retrieve credentials and secrets programmatically in CI/CD pipelines without hardcoded credentials. |
-| Privileged Account Discovery | Automatically discover and on-board all privileged accounts across hybrid environments. |
-| Compliance Reporting | Generate audit trails for all privileged access to meet SOX, PCI-DSS, and HIPAA requirements. |
-| Ransomware Prevention | Prevent lateral movement by removing local admin rights and controlling privileged access. |
-| Third-Party Vendor Access | Grant temporary, monitored access to vendors and contractors without sharing credentials. |
+- [Beyondtrust Create Request Body Structure](https://apis.io/json-structure/beyondtrust/beyondtrust-create-request-body-structure/)
+- [Beyondtrust Create Secret Request Structure](https://apis.io/json-structure/beyondtrust/beyondtrust-create-secret-request-structure/)
+- [Beyondtrust Credential Response Structure](https://apis.io/json-structure/beyondtrust/beyondtrust-credential-response-structure/)
+- [Beyondtrust Managed Account Structure](https://apis.io/json-structure/beyondtrust/beyondtrust-managed-account-structure/)
+- [Beyondtrust Managed System Structure](https://apis.io/json-structure/beyondtrust/beyondtrust-managed-system-structure/)
+- [Beyondtrust Request Structure](https://apis.io/json-structure/beyondtrust/beyondtrust-request-structure/)
+- [Beyondtrust Secret Structure](https://apis.io/json-structure/beyondtrust/beyondtrust-secret-structure/)
+- [Beyondtrust Secret With Value Structure](https://apis.io/json-structure/beyondtrust/beyondtrust-secret-with-value-structure/)
+- [Beyondtrust Session Response Structure](https://apis.io/json-structure/beyondtrust/beyondtrust-session-response-structure/)
+- [Beyondtrust Sign App In Request Structure](https://apis.io/json-structure/beyondtrust/beyondtrust-sign-app-in-request-structure/)
+- [Beyondtrust Update Request Body Structure](https://apis.io/json-structure/beyondtrust/beyondtrust-update-request-body-structure/)
 
-## Integrations
+#### JSON-LD (1)
 
-| Name | Description |
-|------|-------------|
-| ServiceNow | Integrate access requests with ServiceNow ITSM workflows for approval management. |
-| Active Directory | Sync users, groups, and managed accounts from Active Directory. |
-| AWS | Manage privileged access to AWS IAM roles and EC2 instances. |
-| Azure | Integrate with Azure Active Directory and manage Azure privileged identities. |
-| HashiCorp Vault | Bridge BeyondTrust and HashiCorp Vault for secrets management. |
-| Splunk | Forward audit logs and session recordings to Splunk for SIEM analysis. |
-| Terraform | Manage BeyondTrust Password Safe resources as infrastructure as code. |
+Linked-data contexts for the provider's vocabulary.
 
-## Artifacts
+- [Beyondtrust Context](https://apis.io/jsonld/beyondtrust/beyondtrust-context/)
 
-Machine-readable API specifications organized by format.
+#### Vocabulary (1)
 
-### OpenAPI
+The provider's domain terms, defined.
 
-- [BeyondTrust Password Safe API](openapi/beyondtrust-password-safe-api.yaml)
+- [Beyondtrust Vocabulary](https://apis.io/vocabularies/beyondtrust/beyondtrust-vocabulary/)
 
-### JSON Schema
+#### Examples (11)
 
-- [beyondtrust-create-request-body-schema.json](json-schema/beyondtrust-create-request-body-schema.json)
-- [beyondtrust-create-secret-request-schema.json](json-schema/beyondtrust-create-secret-request-schema.json)
-- [beyondtrust-credential-response-schema.json](json-schema/beyondtrust-credential-response-schema.json)
-- [beyondtrust-managed-account-schema.json](json-schema/beyondtrust-managed-account-schema.json)
-- [beyondtrust-managed-system-schema.json](json-schema/beyondtrust-managed-system-schema.json)
-- [beyondtrust-request-schema.json](json-schema/beyondtrust-request-schema.json)
-- [beyondtrust-secret-schema.json](json-schema/beyondtrust-secret-schema.json)
-- [beyondtrust-secret-with-value-schema.json](json-schema/beyondtrust-secret-with-value-schema.json)
-- [beyondtrust-session-response-schema.json](json-schema/beyondtrust-session-response-schema.json)
-- [beyondtrust-sign-app-in-request-schema.json](json-schema/beyondtrust-sign-app-in-request-schema.json)
-- [beyondtrust-update-request-body-schema.json](json-schema/beyondtrust-update-request-body-schema.json)
+Example requests and responses.
 
-## Capabilities
+- [Beyondtrust Create Request Body Example](https://apis.io/examples/beyondtrust/beyondtrust-create-request-body-example/)
+- [Beyondtrust Create Secret Request Example](https://apis.io/examples/beyondtrust/beyondtrust-create-secret-request-example/)
+- [Beyondtrust Credential Response Example](https://apis.io/examples/beyondtrust/beyondtrust-credential-response-example/)
+- [Beyondtrust Managed Account Example](https://apis.io/examples/beyondtrust/beyondtrust-managed-account-example/)
+- [Beyondtrust Managed System Example](https://apis.io/examples/beyondtrust/beyondtrust-managed-system-example/)
+- [Beyondtrust Request Example](https://apis.io/examples/beyondtrust/beyondtrust-request-example/)
+- [Beyondtrust Secret Example](https://apis.io/examples/beyondtrust/beyondtrust-secret-example/)
+- [Beyondtrust Secret With Value Example](https://apis.io/examples/beyondtrust/beyondtrust-secret-with-value-example/)
+- [Beyondtrust Session Response Example](https://apis.io/examples/beyondtrust/beyondtrust-session-response-example/)
+- [Beyondtrust Sign App In Request Example](https://apis.io/examples/beyondtrust/beyondtrust-sign-app-in-request-example/)
+- [Beyondtrust Update Request Body Example](https://apis.io/examples/beyondtrust/beyondtrust-update-request-body-example/)
 
-Naftiko capabilities organized as shared per-API definitions composed into customer-facing workflows.
+#### Collections (6)
 
-### Shared Per-API Definitions
+Postman and Open Collection request collections.
 
-- [BeyondTrust Password Safe API](capabilities/shared/beyondtrust.yaml) — 14 operations for access requests, credential retrieval, managed accounts, managed systems, and secrets management
+- [BeyondTrust Password Safe Authentication API](https://apis.io/collections/beyondtrust/open-beyondtrust-authentication-api/)
+- [BeyondTrust Password Safe Authentication Credentials API](https://apis.io/collections/beyondtrust/open-beyondtrust-credentials-api/)
+- [BeyondTrust Password Safe Authentication Managed Accounts API](https://apis.io/collections/beyondtrust/open-beyondtrust-managed-accounts-api/)
+- [BeyondTrust Password Safe Authentication Managed Systems API](https://apis.io/collections/beyondtrust/open-beyondtrust-managed-systems-api/)
+- [BeyondTrust Password Safe Authentication Requests API](https://apis.io/collections/beyondtrust/open-beyondtrust-requests-api/)
+- [BeyondTrust Password Safe Authentication Secrets API](https://apis.io/collections/beyondtrust/open-beyondtrust-secrets-api/)
 
-### Workflow Capabilities
+#### Governance rules (3)
 
-| Workflow | APIs Combined | Tools | Persona |
-|----------|--------------|-------|---------|
-| [Privileged Access Management](capabilities/privileged-access-management.yaml) | BeyondTrust | 9 | Security Engineer, DevOps Engineer |
+Spectral rulesets for the provider's contracts.
 
-## Vocabulary
+- [BeyondTrust — jsonschema rules](https://apis.io/rules/beyondtrust/beyondtrust-jsonschema-spectral-rules/)
+- [BeyondTrust API Rules](https://apis.io/rules/beyondtrust/beyondtrust-rules/)
+- [BeyondTrust API Rules](https://apis.io/rules/beyondtrust/beyondtrust-spectral-rules/)
 
-- [BeyondTrust Vocabulary](vocabulary/beyondtrust-vocabulary.yaml) — Unified taxonomy mapping 4 resources, 6 actions, 1 workflow, and 2 personas across operational (OpenAPI) and capability (Naftiko) dimensions
+#### Security (3)
 
-## Rules
+Authentication, trust centre, and vulnerability disclosure.
 
-- [BeyondTrust Spectral Rules](rules/beyondtrust-spectral-rules.yml) — 24 rules across 9 categories enforcing BeyondTrust API conventions
+- [Beyondtrust Authentication](https://apis.io/security/beyondtrust/beyondtrust-authentication/)
+- [Beyondtrust Domain Security](https://apis.io/security/beyondtrust/beyondtrust-domain-security/)
+- [Beyondtrust Vulnerability Disclosure](https://apis.io/security/beyondtrust/beyondtrust-vulnerability-disclosure/)
 
-## Maintainers
+#### Plans and pricing (1)
 
-**FN:** Kin Lane
+Published plans, tiers and prices.
 
-**Email:** kin@apievangelist.com
+- [Beyondtrust Plans Pricing](https://apis.io/plans/beyondtrust/beyondtrust-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Beyondtrust Rate Limits](https://apis.io/rate-limits/beyondtrust/beyondtrust-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Beyondtrust Finops](https://apis.io/finops/beyondtrust/beyondtrust-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://beyondtrust.com)
+- [Getting started](https://docs.beyondtrust.com/)
+- [Blog](https://www.beyondtrust.com/blog)
+- [Security](https://www.beyondtrust.com/disclosure)
+- [GitHub](https://github.com/BeyondTrust)
+
+## API Evangelist rating
+
+**Kin Score 37.9** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 78.6 |
+| Contract quality | 37.7 |
+| Contract governance | 45.5 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 47.0 |
+| Access clarity | 7.9 |
+
+**Agent readiness 36.8** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | yes |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 22.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/beyondtrust/](https://apis.io/providers/beyondtrust/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for BeyondTrust: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/beyondtrust/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
